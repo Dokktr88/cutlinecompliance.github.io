@@ -75,3 +75,10 @@ input:focus,textarea:focus{outline:2px solid var(--brand);border-color:transpare
   .split{grid-template-columns:1fr}
   .hero h1{font-size:32px}
 }
+
+.logo{
+  height:36px; width:auto; display:inline-block;
+  vertical-align:middle; margin-right:8px; transform:translateY(-2px);
+}
+.brand{ display:flex; align-items:center; font-weight:800; letter-spacing:.2px }
+
