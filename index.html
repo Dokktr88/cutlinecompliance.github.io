@@ -3,73 +3,265 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-
   <title>Cutline Compliance | Food Safety & Regulatory Readiness Consulting</title>
-  <meta name="description" content="Cutline Compliance helps food businesses simplify compliance, strengthen programs, and prepare for audits through practical, FSIS-aligned guidance." />
+  <meta name="description" content="Practical guidance to help food businesses get audit-ready and future-ready. People • Processes • Product." />
   <link rel="canonical" href="https://cutlinecompliance.com/" />
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=1" />
 
-  <!-- Favicons -->
+  <!-- Favicons (already in your repo) -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <link rel="icon" href="favicon.ico" sizes="any">
 
-  <!-- Open Graph / Social -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Cutline Compliance | Food Safety & Regulatory Readiness Consulting" />
-  <meta property="og:description" content="Practical, FSIS-aligned guidance for food businesses — focused on people, processes, and product." />
+  <meta property="og:description" content="Practical guidance that turns complex requirements into clear actions." />
   <meta property="og:url" content="https://cutlinecompliance.com/" />
   <meta property="og:image" content="https://cutlinecompliance.com/cutline-og-1200x630.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 </head>
 
-<body>
-  <!-- Top bar -->
+<body id="top">
+  <!-- ================= NAV ================= -->
   <header class="nav">
     <div class="container nav-inner">
-      <div class="brand">
-        <img src="cutline-open-512.png" alt="Cutline Compliance logo" class="logo">
+      <a class="brand" href="#top" aria-label="Cutline Compliance home">
+        <img src="favicon-32.png" alt="" class="logo" />
         <span>Cutline Compliance</span>
-      </div>
-      <nav class="links">
+      </a>
+
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="links" id="site-nav">
         <a href="#services">Services</a>
+        <a href="#industries">Industries</a>
         <a href="#process">Process</a>
         <a href="#about">About</a>
-        <a href="#contact" class="btn">Contact</a>
+        <a href="#faqs">FAQs</a>
+        <a href="#contact" class="btn btn-small">Contact</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
+  <!-- ================= HERO ================= -->
   <section class="hero">
     <div class="container hero-inner">
+      <p class="kicker">Food Safety • Regulatory Readiness</p>
       <h1>Practical Food-Safety Guidance that Actually Ships</h1>
       <p class="lead">
-        We help emerging food businesses get audit-ready and future-ready —
-        simplifying complex requirements into clear actions across
+        We help emerging and growth-stage food businesses simplify compliance and
+        prepare for audits—turning complex requirements into clear actions across
         <strong>people</strong>, <strong>processes</strong>, and <strong>product</strong>.
       </p>
       <div class="cta-row">
-        <a href="#contact" class="btn btn-primary">Book a Free Intro Call</a>
-        <a href="#services" class="btn btn-ghost">See Services</a>
+        <a href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call" class="btn btn-primary">Book an Intro Call</a>
+        <a href="#services" class="btn btn-ghost">Explore Services</a>
       </div>
-      <div class="trust">
-        <span>Focus:</span> education • guidance • systems • readiness
-      </div>
+
+      <ul class="trust-badges" aria-label="Focus areas">
+        <li>Program Readiness</li>
+        <li>HACCP/SSOP/Recall scaffolding</li>
+        <li>Audit Prep</li>
+        <li>Training & Enablement</li>
+      </ul>
     </div>
+    <div class="hero-gradient"></div>
   </section>
 
-  <!-- Value props -->
+  <!-- ================= VALUE ================= -->
   <section class="value">
     <div class="container grid-3">
       <div class="card">
         <h3>People</h3>
-        <p>Reduce manual, repetitive tasks and boost engagement with clear roles, training, and digital checklists.</p>
+        <p>Reduce manual, repetitive tasks. Clarify roles. Enable teams with plain-language training and digital checklists.</p>
       </div>
       <div class="card">
         <h3>Processes</h3>
-        <p>Streamline your back office, unify data, and tighten system communication for cleaner audits.</p>
+        <p>Streamline documentation and records. Unify data and tighten system communication for cleaner audits.</p>
       </div>
-      <div class="c
+      <div class="card">
+        <h3>Product</h3>
+        <p>Build programs that protect brand and support growth—without burying your team in paperwork. Here at Cutline Compliance, we do not provide cookie cutter solutions, we tailor food safety to your process.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2>Services</h2>
+      <div class="grid-3">
+        <div class="card tall">
+          <h3>Readiness & Gap Reviews</h3>
+          <p>Rapid assessments that surface risk points and quick wins—delivered as a prioritized action plan.</p>
+          <ul>
+            <li>Program & document review</li>
+            <li>Virtual/in-person walk-through</li>
+            <li>Risk-ranked fixes with timelines</li>
+          </ul>
+          <a href="mailto:hello@cutlinecompliance.com?subject=Readiness%20Review" class="link">Request a review →</a>
+        </div>
+        <div class="card tall">
+          <h3>Program Build & Cleanup</h3>
+          <p>Turn scattered files into a cohesive, living system—SOPs, SSOPs, HACCP scaffolding, training, and records.</p>
+          <ul>
+            <li>Templates & version control</li>
+            <li>Digital record flows</li>
+            <li>Team enablement</li>
+          </ul>
+          <a href="mailto:hello@cutlinecompliance.com?subject=Program%20Build" class="link">Start a build →</a>
+        </div>
+        <div class="card tall">
+          <h3>Education & Workshops</h3>
+          <p>Plain-language clinics for operators and leaders—how compliance actually works day-to-day.</p>
+          <ul>
+            <li>Team training & Q&A</li>
+            <li>Leadership briefings</li>
+            <li>New-hire mini-clinics</li>
+          </ul>
+          <a href="mailto:hello@cutlinecompliance.com?subject=Workshop" class="link">Schedule a session →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INDUSTRIES ================= -->
+  <section id="industries" class="section alt">
+    <div class="container">
+      <h2>Who We Help</h2>
+      <div class="chips">
+        <span>Small & Mid-size Processors that are NOT regulated by the USDAs Food Safety and Inspection Service</span>
+        <span>Resturants</span>
+        <span>Startups & Market-Entry</span>
+        <span>Private Label</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section id="process" class="section">
+    <div class="container">
+      <h2>How We Work</h2>
+      <ol class="steps">
+        <li><strong>Discovery (30 min):</strong> Clarify goals, constraints, and timelines.</li>
+        <li><strong>Rapid Review:</strong> Map risks and quick wins; you get a prioritized action plan.</li>
+        <li><strong>Build & Enable:</strong> Documentation, workflows, and training that teams actually use.</li>
+        <li><strong>Stabilize:</strong> Light check-ins and metrics so improvements stick.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about" class="section alt">
+    <div class="container about-wrap">
+      <div class="about-text">
+        <h2>About Cutline Compliance</h2>
+        <p>We practice “success leaves clues”—pattern recognition from real wins and misses. Our edge: relentless clarity, decisive action, and momentum.</p>
+        <p class="muted small">
+          <em>Note:</em> Educational content reflects personal views for general guidance. It is not official USDA/FSIS policy, endorsement, or a substitute for regulatory decisions.
+        </p>
+        <div class="about-points">
+          <div><strong>Plain-language</strong> guidance</div>
+          <div><strong>Action-first</strong> delivery</div>
+          <div><strong>Systems</strong> that scale</div>
+        </div>
+        <div class="about-cta">
+          <a href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call" class="btn btn-primary">Start the Conversation</a>
+          <a href="https://www.linkedin.com/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+        </div>
+      </div>
+      <div class="about-photo">
+        <!-- Upload your headshot with this exact name to repo root -->
+        <img src="Blue Shirt White Background3v3.jpg" alt="Jesse “Dok” Stanley" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQs ================= -->
+  <section id="faqs" class="section">
+    <div class="container">
+      <h2>FAQs</h2>
+      <div class="faq">
+        <details>
+          <summary>Do you work with USDA-regulated plants?</summary>
+          <p>We provide educational guidance and readiness support. Work is designed to avoid conflicts with federal ethics rules—no representation or advocacy before the agency.</p>
+        </details>
+        <details>
+          <summary>Do you build HACCP plans?</summary>
+          <p>We help you scaffold documentation and align teams with scientific justification and practical controls. Final validation and regulatory determinations are your responsibility.</p>
+        </details>
+        <details>
+          <summary>How fast can we start?</summary>
+          <p>Discovery can happen this week. From there, we sequence a rapid review and begin the highest-leverage fixes first.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact" class="section alt">
+    <div class="container contact-wrap">
+      <div>
+        <h2>Contact</h2>
+        <p class="muted">Prefer email? <a href="mailto:hello@cutlinecompliance.com">hello@cutlinecompliance.com</a></p>
+        <form class="form" action="https://formspree.io/f/your-id" method="POST">
+          <div class="grid-2">
+            <label><span>Name</span><input type="text" name="name" required></label>
+            <label><span>Email</span><input type="email" name="_replyto" required></label>
+          </div>
+          <label><span>Message</span><textarea name="message" rows="6" required></textarea></label>
+          <button class="btn btn-primary" type="submit">Send</button>
+        </form>
+      </div>
+      <div class="contact-card">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#process">Our Process</a></li>
+          <li><a href="#faqs">FAQs</a></li>
+          <li><a href="#top">Back to Top</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container foot">
+      <div>© <span id="yr"></span> Cutline Compliance</div>
+      <div class="tiny muted">Built on GitHub Pages</div>
+    </div>
+  </footer>
+
+  <script>
+    // Year
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Mobile menu
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('site-nav');
+    btn.addEventListener('click', () => {
+      const open = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!open));
+      nav.classList.toggle('open');
+    });
+
+    // Smooth anchor scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const id = a.getAttribute('href').slice(1);
+        const el = document.getElementById(id);
+        if (el) {
+          e.preventDefault();
+          window.scrollTo({ top: el.offsetTop - 70, behavior: 'smooth' });
+          nav.classList.remove('open'); btn.setAttribute('aria-expanded','false');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
