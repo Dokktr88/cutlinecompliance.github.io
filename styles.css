@@ -187,3 +187,5 @@ body{
   .menu-toggle{display:flex}
   .foot{flex-direction:column;gap:.6rem}
 }
+
+#resources .card ul li { margin: .35rem 0; }
