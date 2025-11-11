@@ -143,3 +143,13 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 @media (max-width: 380px){
   .chips span { font-size: .85rem; padding: .35rem .55rem; }
 }
+
+/* Tweak hero logo presentation for full-background graphic */
+.hero-mark{
+  width: 120px;     /* was 88px */
+  filter: none;     /* remove glow/drop-shadow */
+  border-radius: 10px; /* optional soft corners */
+}
+@media (max-width: 380px){
+  .hero-mark{ width: 100px; }
+}
