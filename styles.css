@@ -153,3 +153,32 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 @media (max-width: 380px){
   .hero-mark{ width: 100px; }
 }
+
+/* Bio styling beside headshot */
+.about-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: left;
+}
+
+.bio {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-top: 1rem;
+  max-width: 420px;
+  color: var(--text);
+}
+
+.bio h3 {
+  margin: 0 0 0.4rem;
+  color: var(--accent);
+  font-size: 1.25rem;
+}
+
+.bio p {
+  margin: 0.4rem 0;
+  line-height: 1.5;
+}
