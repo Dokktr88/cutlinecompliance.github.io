@@ -24,13 +24,17 @@ body{
 
 .container{max-width:1120px;margin:0 auto;padding:0 1.5rem}
 
+/* Skip link */
+.skip{position:absolute;left:-9999px;top:auto}
+.skip:focus{left:16px;top:10px;background:#000;padding:.5rem 1rem;border-radius:8px;color:#fff;z-index:100}
+
 /* NAV */
 .nav{
   position:sticky; top:0; z-index:50;
   background:rgba(16,20,26,.85); backdrop-filter:saturate(140%) blur(8px);
   border-bottom:1px solid var(--border);
 }
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px} /* taller for bigger logo */
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:80px}
 .brand{display:flex;align-items:center;gap:.65rem;color:var(--text);text-decoration:none;font-weight:900;letter-spacing:.35px}
 .logo{height:48px;width:auto;display:inline-block;vertical-align:middle}
 .links{display:flex;gap:1rem;align-items:center}
@@ -53,18 +57,19 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .hero{position:relative;padding:6.5rem 0 4rem}
 .hero-inner{text-align:center}
 .hero-mark{
-  width:120px;            /* clean, single source of truth */
+  width:120px;
   height:auto;
   opacity:.95;
   margin:0 auto 1rem;
   display:block;
-  filter:none;            /* no glow for full-background logo */
+  filter:none;
   border-radius:10px;
 }
 .kicker{color:var(--accent);font-weight:800;letter-spacing:.25px;margin-bottom:.75rem}
 .hero h1{font-size:clamp(2rem,4.2vw,3.4rem);line-height:1.15;margin:0 0 1rem}
 .hero .lead{color:var(--muted);max-width:760px;margin:0 auto 2rem}
-.cta-row{display:flex;justify-content:center;gap:1rem;margin-bottom:1.25rem}
+.subproof{color:#cbd3df;opacity:.95;margin:.5rem auto 0;max-width:700px}
+.cta-row{display:flex;justify-content:center;gap:1rem;margin:1.25rem 0}
 .notice{margin:.25rem 0 0;color:#cbd3df;font-size:.95rem;opacity:.9; line-height:1.35}
 .trust-badges{list-style:none;display:flex;flex-wrap:wrap;gap:.6rem;justify-content:center;margin:1rem 0 0;padding:0}
 .trust-badges li{padding:.35rem .6rem;border:1px solid var(--border);border-radius:.5rem;background:rgba(16,20,26,.5);font-size:.9rem;color:#cbd3df}
@@ -103,7 +108,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .about-photo img{width:100%;max-width:420px;border-radius:14px;border:1px solid var(--border);box-shadow:0 20px 50px rgba(0,0,0,.35)}
 .about-cta{display:flex;gap:.8rem;margin-top:1rem}
 
-/* ===== Headshot + Bio card ===== */
+/* Headshot + Bio card */
 .about-photo{
   display:flex;
   flex-direction:column;
@@ -130,10 +135,10 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   line-height:1.55;
 }
 
-/* CONTACT + ZOHO EMBED */
+/* CONTACT + EMBEDS */
 .contact-wrap{display:grid;grid-template-columns:1fr .7fr;gap:1.6rem}
 .form-embed{margin-top:1rem;background:var(--panel);border:1px solid var(--border);border-radius:12px;overflow:hidden}
-.form-embed iframe{width:100%;height:900px;border:0;display:block;background:#fff} /* Zoho renders its own theme */
+.form-embed iframe{width:100%;height:900px;border:0;display:block;background:#fff}
 .contact-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.2rem}
 .contact-card ul{margin:.4rem 0 0 1rem}
 
@@ -141,6 +146,24 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .footer{padding:2rem 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
 .foot{display:flex;align-items:center;justify-content:space-between}
 .tiny{font-size:.85rem}
+
+/* Slide-in CTA */
+.slidein{
+  position:fixed; right:18px; bottom:-300px; max-width:320px;
+  background:var(--panel); border:1px solid var(--border);
+  border-radius:12px; padding:1rem;
+  box-shadow:0 10px 30px rgba(0,0,0,.45);
+  transition:bottom .5s ease; z-index:70
+}
+.slidein.show{ bottom:18px }
+
+/* Mobile floating CTA */
+.cta-float{
+  position:fixed; right:16px; bottom:16px; z-index:60; display:none;
+}
+@media (max-width: 760px){
+  .cta-float{ display:inline-block; }
+}
 
 /* RESPONSIVE */
 @media (max-width: 980px){
@@ -153,6 +176,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
   .links.open{display:flex}
   .menu-toggle{display:flex}
   .foot{flex-direction:column;gap:.6rem}
+  .card{padding:1.2rem}
+  .section{padding:3.5rem 0}
+  .form-embed iframe{height:700px}
 }
 
 /* very small phones */
