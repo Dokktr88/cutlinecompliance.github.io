@@ -7,9 +7,10 @@
   <title>Cutline Compliance | Food-Safety Education & Non-USDA Consultation</title>
   <meta name="description" content="Education-first support for non- and pre-regulated food operations, plus consultation for restaurants, retail/commissary, caterers, and food trucks. Evidence-based instruction on hazard analysis, documentation, and risk literacy using public information. USDA-regulated plants: education-only—no regulatory advisory or representation." />
   <link rel="canonical" href="https://cutlinecompliance.com/" />
+  <meta name="theme-color" content="#0b0e12">
 
   <!-- Styles -->
-  <link rel="stylesheet" href="styles.css?v=4" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -24,33 +25,81 @@
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
 
-  <!-- Structured data -->
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Food-Safety Education & Non-USDA Consultation">
+  <meta name="twitter:description" content="Education-first support for non-/pre-regulated operations. Practical consulting for restaurants, retail, caterers & food trucks.">
+  <meta name="twitter:image" content="https://cutlinecompliance.com/cutline-og-1200x630.png">
+
+  <!-- Manifest (optional PWA) -->
+  <link rel="manifest" href="/manifest.webmanifest">
+
+  <!-- Structured data: Organization -->
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Cutline Compliance",
-    "url": "https://cutlinecompliance.com/",
-    "description": "Education-first food-safety resources for non- and pre-regulated operations, and consultation for non-USDA food-service businesses.",
-    "sameAs": ["https://www.linkedin.com/in/cutlinecompliance/"]
+    "@context":"https://schema.org",
+    "@type":"Organization",
+    "name":"Cutline Compliance",
+    "url":"https://cutlinecompliance.com/",
+    "description":"Education-first food-safety resources for non- and pre-regulated operations, and consultation for non-USDA food-service businesses.",
+    "sameAs":["https://www.linkedin.com/in/cutlinecompliance/"],
+    "contactPoint":[{
+      "@type":"ContactPoint",
+      "contactType":"customer support",
+      "email":"hello@cutlinecompliance.com",
+      "areaServed":"US"
+    }]
+  }
+  </script>
+
+  <!-- Structured data: FAQPage -->
+  <script type="application/ld+json">
+  {
+   "@context":"https://schema.org",
+   "@type":"FAQPage",
+   "mainEntity":[
+     {
+       "@type":"Question",
+       "name":"Do you consult with restaurants and food-service operations?",
+       "acceptedAnswer":{"@type":"Answer","text":"Yes. We provide practical consultation for non-USDA-regulated operations (restaurants, retail/commissary, caterers, food trucks)—SOPs, logs, training, and day-to-day program literacy."}
+     },
+     {
+       "@type":"Question",
+       "name":"Do you work with USDA-regulated plants?",
+       "acceptedAnswer":{"@type":"Answer","text":"We provide education and program literacy only (no regulatory advisory or representation). Teams use our resources to understand concepts and build foundational skills."}
+     },
+     {
+       "@type":"Question",
+       "name":"Do you create HACCP plans?",
+       "acceptedAnswer":{"@type":"Answer","text":"We educate teams on hazard analysis and documentation basics using public information. Any formal plan development, validation, or regulatory decisions remain with your organization."}
+     },
+     {
+       "@type":"Question",
+       "name":"How fast can we start?",
+       "acceptedAnswer":{"@type":"Answer","text":"Discovery can happen this week. From there, we start with a rapid review and focus on the highest-leverage learning modules or non-USDA consult items first."}
+     }
+   ]
   }
   </script>
 </head>
 
 <body id="top">
+  <!-- Skip link for accessibility -->
+  <a href="#main" class="skip">Skip to content</a>
+
   <!-- ============== NAV ============== -->
-  <header class="nav">
+  <header class="nav" role="banner">
     <div class="container nav-inner">
       <a class="brand" href="#top" aria-label="Cutline Compliance home">
         <img src="cutline-open-512.png" alt="Cutline Compliance logo" class="logo" loading="eager" fetchpriority="high" />
         <span>Cutline Compliance</span>
       </a>
 
-      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <button class="menu-toggle" aria-label="Open menu" aria-controls="site-nav" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
 
-      <nav class="links" id="site-nav">
+      <nav class="links" id="site-nav" aria-label="Primary">
         <a href="#services">Services</a>
         <a href="#industries">Who We Help</a>
         <a href="#process">Process</a>
@@ -63,293 +112,366 @@
     </div>
   </header>
 
-  <!-- ============== HERO ============== -->
-  <section class="hero">
-    <div class="container hero-inner">
-      <!-- Optional brand mark in hero -->
-      <img src="Cutline_checker.png" alt="Cutline Compliance" class="hero-mark" />
+  <main id="main">
+    <!-- ============== HERO ============== -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <img
+          src="Cutline_checker.png"
+          alt="Cutline Compliance"
+          class="hero-mark"
+          loading="lazy" decoding="async"
+          srcset="Cutline_checker-240.png 240w, Cutline_checker.png 512w"
+          sizes="(max-width:480px) 100px, 120px"
+        />
 
-      <p class="kicker">Food-Safety Education • Non-USDA Consultation</p>
-      <h1>Food-Safety Education that Builds Foundational Systems</h1>
-      <p class="lead">
-        We help non- and pre-regulated food operations build the skills and literacy to stand up
-        sound programs—evidence-based instruction on hazard analysis, documentation, and risk
-        understanding using publicly available information.
-      </p>
-      <div class="cta-row">
-        <a href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call" class="btn btn-primary">Book an Intro Call</a>
-        <a href="#services" class="btn btn-ghost">Explore Services</a>
-      </div>
-      <p class="notice">
-        For USDA-regulated plants: <strong>education & program literacy only</strong> — no regulatory advisory or representation.<br>
-        <strong>Consultation services are available for non-USDA-regulated operations</strong> (restaurants, retail/commissary, caterers, food trucks).
-      </p>
-
-      <ul class="trust-badges" aria-label="Focus areas">
-        <li>Education-First</li>
-        <li>Hazard Analysis Basics</li>
-        <li>Documentation Skills</li>
-        <li>Risk Literacy</li>
-        <li>Non-USDA Consultation</li>
-      </ul>
-    </div>
-    <div class="hero-gradient"></div>
-  </section>
-
-  <!-- ============== VALUE (People/Process/Product) ============== -->
-  <section class="value">
-    <div class="container grid-3">
-      <div class="card">
-        <h3>People</h3>
-        <p>Plain-language training and checklists that help small teams learn and apply core concepts.</p>
-      </div>
-      <div class="card">
-        <h3>Processes</h3>
-        <p>Document structure and recordcraft—how to organize information so it’s usable and auditable.</p>
-      </div>
-      <div class="card">
-        <h3>Product</h3>
-        <p>Evidence-based thinking that supports safe, consistent outcomes without drowning teams in paperwork.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== SERVICES (Education Tools + Non-USDA Consult) ============== -->
-  <section id="services" class="section">
-    <div class="container">
-      <h2>Services</h2>
-      <div class="grid-3">
-        <div class="card tall">
-          <h3>Plain-Language Guides</h3>
-          <p>Clear, practical resources that demystify core concepts for small teams.</p>
-          <ul>
-            <li>Basic hazard analysis primers</li>
-            <li>Document structure &amp; recordcraft</li>
-            <li>Risk literacy quick sheets</li>
-          </ul>
-          <a href="mailto:hello@cutlinecompliance.com?subject=Guides" class="link">Request guides →</a>
-        </div>
-        <div class="card tall">
-          <h3>Learning Modules</h3>
-          <p>Evidence-based micro-lessons using public information and real-world patterns.</p>
-          <ul>
-            <li>Foundational food-safety skills</li>
-            <li>Team mini-clinics &amp; Q&amp;A</li>
-            <li>Self-paced or live sessions</li>
-          </ul>
-          <a href="mailto:hello@cutlinecompliance.com?subject=Modules" class="link">Explore modules →</a>
-        </div>
-        <div class="card tall">
-          <h3>Readiness Assessments</h3>
-          <p>Education-focused checkups that show where to build literacy first.</p>
-          <ul>
-            <li>Simple gap snapshots</li>
-            <li>Step-by-step learning plan</li>
-            <li>DIY tools to practice</li>
-          </ul>
-          <a href="mailto:hello@cutlinecompliance.com?subject=Readiness" class="link">Start an assessment →</a>
-        </div>
-        <!-- New: Non-USDA consultation card -->
-        <div class="card tall">
-          <h3>Consultation for Non-USDA Operations</h3>
-          <p>Hands-on, plain-language consulting for restaurants and food-service teams.</p>
-          <ul>
-            <li>SOPs &amp; daily line checks</li>
-            <li>Cooling/holding logs &amp; verification</li>
-            <li>Allergen &amp; cross-contact controls</li>
-            <li>Employee training &amp; micro-clinics</li>
-          </ul>
-          <a href="mailto:hello@cutlinecompliance.com?subject=Non-USDA%20Consultation" class="link">Book a consult →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== INDUSTRIES / WHO WE HELP ============== -->
-  <section id="industries" class="section alt">
-    <div class="container">
-      <h2>Who We Help</h2>
-      <div class="chips">
-        <span>Restaurants &amp; Food Service</span>
-        <span>Retail / Commissaries</span>
-        <span>Caterers &amp; Food Trucks</span>
-        <span>Pre-regulated Startups</span>
-        <span>Education-only for USDA plants</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== PROCESS ============== -->
-  <section id="process" class="section">
-    <div class="container">
-      <h2>How We Work</h2>
-      <ol class="steps">
-        <li><strong>Discovery (30 min):</strong> Clarify goals, constraints, and timelines.</li>
-        <li><strong>Rapid Review:</strong> Identify literacy gaps and quick wins; you get a simple learning plan.</li>
-        <li><strong>Build &amp; Enable:</strong> Guides, modules, practice tools, or non-USDA consult delivery.</li>
-        <li><strong>Stabilize:</strong> Light check-ins and metrics so improvements stick.</li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- ============== ABOUT ============== -->
-  <section id="about" class="section alt">
-    <div class="container about-wrap">
-      <div class="about-text">
-        <h2>About Cutline Compliance</h2>
-        <p>
-          Cutline develops educational tools and frameworks that help non- and pre-regulated
-          operations build foundational food-safety systems. We emphasize evidence-based instruction
-          on hazard analysis, documentation, and risk literacy—using publicly available information.
-          <strong>We also provide consultation services for non-USDA-regulated operations such as restaurants, retail/commissary kitchens, caterers, and food trucks.</strong>
+        <p class="kicker">Food-Safety Education • Non-USDA Consultation</p>
+        <h1>Food-Safety Education that Builds Foundational Systems</h1>
+        <p class="lead">
+          We help non- and pre-regulated food operations build the skills and literacy to stand up
+          sound programs—evidence-based instruction on hazard analysis, documentation, and risk
+          understanding using publicly available information.
         </p>
-        <p class="muted small">
-          <strong>Scope for USDA-regulated plants:</strong> Education and program literacy only. We do not
-          perform regulatory advisory work or representation.
+
+        <div class="cta-row">
+          <a href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call" class="btn btn-primary">Book an Intro Call</a>
+          <a href="#services" class="btn btn-ghost">Explore Services</a>
+          <a href="mailto:hello@cutlinecompliance.com?subject=Starter%20Kit" class="btn btn-ghost">Download Starter Kit</a>
+        </div>
+
+        <p class="subproof">For non-USDA food service teams who want clear steps, fewer gaps, and audit-ready records.</p>
+
+        <p class="notice">
+          For USDA-regulated plants: <strong>education & program literacy only</strong> — no regulatory advisory or representation.<br>
+          <strong>Consultation services are available for non-USDA-regulated operations</strong> (restaurants, retail/commissary, caterers, food trucks).
         </p>
-        <div class="about-points">
-          <div><strong>Plain-language</strong> guidance</div>
-          <div><strong>Action-first</strong> delivery</div>
-          <div><strong>Systems</strong> that scale</div>
-        </div>
-        <div class="about-cta">
-          <a href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call" class="btn btn-primary">Start the Conversation</a>
-          <a href="https://www.linkedin.com/in/cutlinecompliance/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
-        </div>
-      </div>
-      <div class="about-photo">
-  <img src="Blue Shirt White Background3v3.jpg" alt="Jesse E. Stanley" />
-  <div class="bio">
-    <h3>Jesse E. Stanley</h3>
-    <p>
-      Founder of <strong>Cutline Compliance</strong>, a food-safety education and readiness practice focused on
-      helping non- and pre-regulated operations build foundational systems. Jesse has more than
-      15 years of experience in federal inspection, program oversight, and policy support within USDA FSIS.
-      His approach combines practical insight from the field with a focus on education, literacy, and
-      long-term self-sufficiency.
-    </p>
-    <p class="muted small">
-      <em>All educational material reflects personal views and publicly available information.
-      It does not represent USDA or FSIS policy.</em>
-    </p>
-    <p>
-      <a href="https://www.linkedin.com/in/cutlinecompliance/" target="_blank" rel="noopener" class="link">
-        View LinkedIn →
-      </a>
-    </p>
-  </div>
-</div>
 
-  </section>
-
-  <!-- ============== FAQs ============== -->
-  <section id="faqs" class="section">
-    <div class="container">
-      <h2>FAQs</h2>
-      <div class="faq">
-        <details>
-          <summary>Do you consult with restaurants and food-service operations?</summary>
-          <p>Yes. We provide practical consultation for <strong>non-USDA-regulated</strong> operations (restaurants, retail/commissary, caterers, food trucks)—SOPs, logs, training, and day-to-day program literacy.</p>
-        </details>
-        <details>
-          <summary>Do you work with USDA-regulated plants?</summary>
-          <p>We provide <em>education and literacy support only</em> (no regulatory advisory or representation). Teams use our resources to understand concepts and build foundational skills.</p>
-        </details>
-        <details>
-          <summary>Do you create HACCP plans?</summary>
-          <p>We educate teams on hazard analysis and documentation basics using public information. Any formal plan development, validation, or regulatory decisions remain with your organization.</p>
-        </details>
-        <details>
-          <summary>How fast can we start?</summary>
-          <p>Discovery can happen this week. From there, we start with a rapid review and focus on the highest-leverage learning modules or non-USDA consult items first.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============== REGULATORY RESOURCES (PUBLIC LINKS) ============== -->
-  <section id="resources" class="section alt">
-    <div class="container">
-      <h2>Regulatory Resources (Public Links)</h2>
-      <p class="muted small" style="margin-bottom:1rem">
-        Provided for education and program literacy only. Cutline Compliance does <strong>not</strong> provide regulatory advisory,
-        representation, or agency liaison services. For <strong>non-FSIS-regulated</strong> operations.
-      </p>
-
-      <div class="grid-3">
-        <!-- FSIS -->
-        <div class="card">
-          <h3>FSIS (USDA)</h3>
-          <ul style="margin:.6rem 0 0 1.1rem">
-            <li><a class="link" href="https://www.fsis.usda.gov/contact-us/askfsis" target="_blank" rel="noopener">askFSIS (submit/view Q&amp;A)</a></li>
-            <li><a class="link" href="https://www.fsis.usda.gov/guidelines" target="_blank" rel="noopener">Compliance &amp; Guidance Library</a></li>
-            <li><a class="link" href="https://www.fsis.usda.gov/recalls" target="_blank" rel="noopener">FSIS Recalls &amp; Public Health Alerts</a></li>
-            <li><a class="link" href="https://www.fsis.usda.gov/policy/federal-register-rulemaking" target="_blank" rel="noopener">FSIS Rulemaking (overview)</a></li>
-          </ul>
-        </div>
-
-        <!-- FDA -->
-        <div class="card">
-          <h3>FDA (Food Program)</h3>
-          <ul style="margin:.6rem 0 0 1.1rem">
-            <li><a class="link" href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents" target="_blank" rel="noopener">FDA Guidance Documents (search)</a></li>
-            <li><a class="link" href="https://www.fda.gov/food/retail-food-protection/fda-food-code" target="_blank" rel="noopener">FDA Food Code (Retail)</a></li>
-            <li><a class="link" href="https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts" target="_blank" rel="noopener">FDA Recalls &amp; Safety Alerts</a></li>
-          </ul>
-        </div>
-
-        <!-- Federal Register -->
-        <div class="card">
-          <h3>Federal Register</h3>
-          <ul style="margin:.6rem 0 0 1.1rem">
-            <li><a class="link" href="https://www.federalregister.gov/agencies/food-safety-and-inspection-service" target="_blank" rel="noopener">FSIS Notices, Proposed &amp; Final Rules</a></li>
-            <li><a class="link" href="https://www.federalregister.gov/agencies/food-and-drug-administration" target="_blank" rel="noopener">FDA Notices, Proposed &amp; Final Rules</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <p class="tiny muted" style="margin-top:1rem">
-        Links above go to official sources. Views on this site are personal and for education only; not official USDA/FSIS or FDA policy.
-      </p>
-    </div>
-  </section>
-
-  <!-- ============== CONTACT (Zoho Forms) ============== -->
-  <section id="contact" class="section alt">
-    <div class="container contact-wrap">
-      <div>
-        <h2>Contact</h2>
-        <p class="muted">Prefer email? <a href="mailto:hello@cutlinecompliance.com">hello@cutlinecompliance.com</a></p>
-
-        <div class="form-embed">
-          <iframe
-            title="Cutline Compliance Contact Form"
-            src="https://forms.zohopublic.com/cutlinecomplianceconsulting1/form/SupportRequestForm/formperma/orwH0fn3283Jvy2no_XJA6YRF4oTpnCwCVOTu_n0y9w?singlecolumn=true"
-            frameborder="0"
-            loading="lazy"
-            allowfullscreen>
-          </iframe>
-        </div>
-
-        <noscript>
-          <p class="muted small">Form requires JavaScript. Email us instead:
-            <a href="mailto:hello@cutlinecompliance.com">hello@cutlinecompliance.com</a>.
-          </p>
-        </noscript>
-      </div>
-
-      <div class="contact-card">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#process">Our Process</a></li>
-          <li><a href="#faqs">FAQs</a></li>
-          <li><a href="https://www.linkedin.com/in/cutlinecompliance/" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="#top">Back to Top</a></li>
+        <ul class="trust-badges" aria-label="Focus areas">
+          <li>Education-First</li>
+          <li>Hazard Analysis Basics</li>
+          <li>Documentation Skills</li>
+          <li>Risk Literacy</li>
+          <li>Non-USDA Consultation</li>
+          <li>15+ yrs FSIS field & policy</li>
+          <li>Public-source referencing</li>
         </ul>
       </div>
+      <div class="hero-gradient"></div>
+    </section>
+
+    <!-- ============== VALUE (People/Process/Product) ============== -->
+    <section class="value">
+      <div class="container grid-3">
+        <div class="card">
+          <h3>People</h3>
+          <p>Plain-language training and checklists that help small teams learn and apply core concepts.</p>
+        </div>
+        <div class="card">
+          <h3>Processes</h3>
+          <p>Document structure and recordcraft—how to organize information so it’s usable and auditable.</p>
+        </div>
+        <div class="card">
+          <h3>Product</h3>
+          <p>Evidence-based thinking that supports safe, consistent outcomes without drowning teams in paperwork.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== SERVICES (Education Tools + Non-USDA Consult) ============== -->
+    <section id="services" class="section">
+      <div class="container">
+        <h2>Services</h2>
+        <div class="grid-3">
+          <div class="card tall">
+            <h3>Plain-Language Guides</h3>
+            <p>Clear, practical resources that demystify core concepts for small teams.</p>
+            <ul>
+              <li>Basic hazard analysis primers</li>
+              <li>Document structure &amp; recordcraft</li>
+              <li>Risk literacy quick sheets</li>
+            </ul>
+            <a href="mailto:hello@cutlinecompliance.com?subject=Guides" class="link">Request guides →</a>
+          </div>
+          <div class="card tall">
+            <h3>Learning Modules</h3>
+            <p>Evidence-based micro-lessons using public information and real-world patterns.</p>
+            <ul>
+              <li>Foundational food-safety skills</li>
+              <li>Team mini-clinics &amp; Q&amp;A</li>
+              <li>Self-paced or live sessions</li>
+            </ul>
+            <a href="mailto:hello@cutlinecompliance.com?subject=Modules" class="link">Explore modules →</a>
+          </div>
+          <div class="card tall">
+            <h3>Readiness Assessments</h3>
+            <p>Education-focused checkups that show where to build literacy first.</p>
+            <ul>
+              <li>Simple gap snapshots</li>
+              <li>Step-by-step learning plan</li>
+              <li>DIY tools to practice</li>
+            </ul>
+            <a href="mailto:hello@cutlinecompliance.com?subject=Readiness" class="link">Start an assessment →</a>
+          </div>
+          <div class="card tall">
+            <h3>Consultation for Non-USDA Operations</h3>
+            <p>Hands-on, plain-language consulting for restaurants and food-service teams.</p>
+            <ul>
+              <li>SOPs &amp; daily line checks</li>
+              <li>Cooling/holding logs &amp; verification</li>
+              <li>Allergen &amp; cross-contact controls</li>
+              <li>Employee training &amp; micro-clinics</li>
+            </ul>
+            <a href="mailto:hello@cutlinecompliance.com?subject=Non-USDA%20Consultation" class="link">Book a consult →</a>
+          </div>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call">Book Intro Call</a>
+          <a class="btn btn-ghost" href="#faqs">Common Questions</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== INDUSTRIES / WHO WE HELP ============== -->
+    <section id="industries" class="section alt">
+      <div class="container">
+        <h2>Who We Help</h2>
+        <div class="chips">
+          <span>Restaurants &amp; Food Service</span>
+          <span>Retail / Commissaries</span>
+          <span>Caterers &amp; Food Trucks</span>
+          <span>Pre-regulated Startups</span>
+          <span>Education-only for USDA plants</span>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call">Book Intro Call</a>
+          <a class="btn btn-ghost" href="#services">See Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== PROCESS ============== -->
+    <section id="process" class="section">
+      <div class="container">
+        <h2>How We Work</h2>
+        <ol class="steps">
+          <li><strong>Discovery (30 min):</strong> Clarify goals, constraints, and timelines.</li>
+          <li><strong>Rapid Review:</strong> Identify literacy gaps and quick wins; you get a simple learning plan.</li>
+          <li><strong>Build &amp; Enable:</strong> Guides, modules, practice tools, or non-USDA consult delivery.</li>
+          <li><strong>Stabilize:</strong> Light check-ins and metrics so improvements stick.</li>
+        </ol>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call">Start Discovery</a>
+          <a class="btn btn-ghost" href="#contact">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== ABOUT ============== -->
+    <section id="about" class="section alt">
+      <div class="container about-wrap">
+        <div class="about-text">
+          <h2>About Cutline Compliance</h2>
+          <p>
+            Cutline develops educational tools and frameworks that help non- and pre-regulated
+            operations build foundational food-safety systems. We emphasize evidence-based instruction
+            on hazard analysis, documentation, and risk literacy—using publicly available information.
+            <strong>We also provide consultation services for non-USDA-regulated operations such as restaurants, retail/commissary kitchens, caterers, and food trucks.</strong>
+          </p>
+          <p class="muted small">
+            <strong>Scope for USDA-regulated plants:</strong> Education and program literacy only. We do not
+            perform regulatory advisory work or representation.
+          </p>
+          <div class="about-points">
+            <div><strong>Plain-language</strong> guidance</div>
+            <div><strong>Action-first</strong> delivery</div>
+            <div><strong>Systems</strong> that scale</div>
+          </div>
+          <div class="about-cta">
+            <a href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call" class="btn btn-primary">Start the Conversation</a>
+            <a href="https://www.linkedin.com/in/cutlinecompliance/" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn</a>
+          </div>
+        </div>
+
+        <div class="about-photo">
+          <img
+            src="Blue Shirt White Background3v3.jpg"
+            alt="Jesse E. Stanley"
+            loading="lazy" decoding="async"
+            class=""
+          />
+          <div class="bio">
+            <h3>Jesse E. Stanley</h3>
+            <p>
+              Founder of <strong>Cutline Compliance</strong>, a food-safety education and readiness practice focused on
+              helping non- and pre-regulated operations build foundational systems. Jesse has more than
+              15 years of experience in federal inspection, program oversight, and policy support within USDA FSIS.
+              His approach combines practical insight from the field with a focus on education, literacy, and
+              long-term self-sufficiency.
+            </p>
+            <p class="muted small">
+              <em>All educational material reflects personal views and publicly available information.
+              It does not represent USDA or FSIS policy.</em>
+            </p>
+            <p>
+              <a href="https://www.linkedin.com/in/cutlinecompliance/" target="_blank" rel="noopener" class="link">
+                View LinkedIn →
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call">Book Intro Call</a>
+          <a class="btn btn-ghost" href="#resources">Regulatory Resources</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== FAQs ============== -->
+    <section id="faqs" class="section">
+      <div class="container">
+        <h2>FAQs</h2>
+        <div class="faq">
+          <details>
+            <summary>Do you consult with restaurants and food-service operations?</summary>
+            <p>Yes. We provide practical consultation for <strong>non-USDA-regulated</strong> operations (restaurants, retail/commissary, caterers, food trucks)—SOPs, logs, training, and day-to-day program literacy.</p>
+          </details>
+          <details>
+            <summary>Do you work with USDA-regulated plants?</summary>
+            <p>We provide <em>education and literacy support only</em> (no regulatory advisory or representation). Teams use our resources to understand concepts and build foundational skills.</p>
+          </details>
+          <details>
+            <summary>Do you create HACCP plans?</summary>
+            <p>We educate teams on hazard analysis and documentation basics using public information. Any formal plan development, validation, or regulatory decisions remain with your organization.</p>
+          </details>
+          <details>
+            <summary>How fast can we start?</summary>
+            <p>Discovery can happen this week. From there, we start with a rapid review and focus on the highest-leverage learning modules or non-USDA consult items first.</p>
+          </details>
+        </div>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call">Book Intro Call</a>
+          <a class="btn btn-ghost" href="#contact">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== REGULATORY RESOURCES (PUBLIC LINKS) ============== -->
+    <section id="resources" class="section alt">
+      <div class="container">
+        <h2>Regulatory Resources (Public Links)</h2>
+        <p class="muted small" style="margin-bottom:1rem">
+          Provided for education and program literacy only. Cutline Compliance does <strong>not</strong> provide regulatory advisory,
+          representation, or agency liaison services. For <strong>non-FSIS-regulated</strong> operations.
+        </p>
+
+        <div class="grid-3">
+          <!-- FSIS -->
+          <div class="card">
+            <h3>FSIS (USDA)</h3>
+            <ul style="margin:.6rem 0 0 1.1rem">
+              <li><a class="link" href="https://www.fsis.usda.gov/contact-us/askfsis" target="_blank" rel="noopener">askFSIS (submit/view Q&amp;A)</a></li>
+              <li><a class="link" href="https://www.fsis.usda.gov/guidelines" target="_blank" rel="noopener">Compliance &amp; Guidance Library</a></li>
+              <li><a class="link" href="https://www.fsis.usda.gov/recalls" target="_blank" rel="noopener">FSIS Recalls &amp; Public Health Alerts</a></li>
+              <li><a class="link" href="https://www.fsis.usda.gov/policy/federal-register-rulemaking" target="_blank" rel="noopener">FSIS Rulemaking (overview)</a></li>
+            </ul>
+          </div>
+
+          <!-- FDA -->
+          <div class="card">
+            <h3>FDA (Food Program)</h3>
+            <ul style="margin:.6rem 0 0 1.1rem">
+              <li><a class="link" href="https://www.fda.gov/regulatory-information/search-fda-guidance-documents" target="_blank" rel="noopener">FDA Guidance Documents (search)</a></li>
+              <li><a class="link" href="https://www.fda.gov/food/retail-food-protection/fda-food-code" target="_blank" rel="noopener">FDA Food Code (Retail)</a></li>
+              <li><a class="link" href="https://www.fda.gov/safety/recalls-market-withdrawals-safety-alerts" target="_blank" rel="noopener">FDA Recalls &amp; Safety Alerts</a></li>
+            </ul>
+          </div>
+
+          <!-- Federal Register -->
+          <div class="card">
+            <h3>Federal Register</h3>
+            <ul style="margin:.6rem 0 0 1.1rem">
+              <li><a class="link" href="https://www.federalregister.gov/agencies/food-safety-and-inspection-service" target="_blank" rel="noopener">FSIS Notices, Proposed &amp; Final Rules</a></li>
+              <li><a class="link" href="https://www.federalregister.gov/agencies/food-and-drug-administration" target="_blank" rel="noopener">FDA Notices, Proposed &amp; Final Rules</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="tiny muted" style="margin-top:1rem">
+          Links above go to official sources. Views on this site are personal and for education only; not official USDA/FSIS or FDA policy.
+        </p>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call">Book Intro Call</a>
+          <a class="btn btn-ghost" href="#contact">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== CONTACT (Zoho + optional Calendly) ============== -->
+    <section id="contact" class="section alt">
+      <div class="container contact-wrap">
+        <div>
+          <h2>Contact</h2>
+          <p class="muted">Prefer email? <a href="mailto:hello@cutlinecompliance.com">hello@cutlinecompliance.com</a></p>
+
+          <div class="form-embed">
+            <iframe
+              title="Cutline Compliance Contact Form"
+              src="https://forms.zohopublic.com/cutlinecomplianceconsulting1/form/SupportRequestForm/formperma/orwH0fn3283Jvy2no_XJA6YRF4oTpnCwCVOTu_n0y9w?singlecolumn=true"
+              frameborder="0"
+              loading="lazy"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <!-- Optional: Calendly embed (replace YOUR_HANDLE or remove this block) -->
+          <!--
+          <div class="form-embed" aria-label="Schedule a 30-min intro call">
+            <iframe src="https://calendly.com/YOUR_HANDLE/intro?hide_event_type_details=1&hide_gdpr_banner=1"
+                    title="Schedule Intro Call" loading="lazy"></iframe>
+          </div>
+          -->
+
+          <noscript>
+            <p class="muted small">Form requires JavaScript. Email us instead:
+              <a href="mailto:hello@cutlinecompliance.com">hello@cutlinecompliance.com</a>.
+            </p>
+          </noscript>
+        </div>
+
+        <div class="contact-card">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#process">Our Process</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+            <li><a href="https://www.linkedin.com/in/cutlinecompliance/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a href="#top">Back to Top</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Slide-in Starter Kit CTA -->
+  <div class="slidein" id="slidein" aria-live="polite" aria-label="Free Starter Kit offer">
+    <strong>Free Starter Kit</strong><br>
+    Line checks • cooling/holding logs • allergen basics.
+    <div style="margin-top:.5rem; display:flex; gap:.5rem; flex-wrap:wrap">
+      <a class="btn btn-small btn-primary" href="mailto:hello@cutlinecompliance.com?subject=Starter%20Kit">Get it</a>
+      <button class="btn btn-small btn-ghost" id="slideinClose" aria-label="Dismiss Starter Kit offer">Not now</button>
     </div>
-  </section>
+  </div>
+
+  <!-- Mobile floating CTA -->
+  <a class="btn btn-primary cta-float" href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call">Book Intro</a>
 
   <footer class="footer">
     <div class="container foot">
@@ -385,6 +507,24 @@
         }
       });
     });
+
+    // Slide-in CTA (after 20s or 50% scroll)
+    (function(){
+      const s = document.getElementById('slidein');
+      const c = document.getElementById('slideinClose');
+      let shown = false;
+      function show(){ if(!shown){ s.classList.add('show'); shown = true; } }
+      setTimeout(show, 20000);
+      window.addEventListener('scroll', () => {
+        if (!shown && window.scrollY > (document.body.scrollHeight * 0.5)) show();
+      });
+      c && c.addEventListener('click', () => s.remove());
+    })();
+
+    // Optional PWA SW registration (safe no-op if file absent)
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(()=>{});
+    }
   </script>
 </body>
 </html>
