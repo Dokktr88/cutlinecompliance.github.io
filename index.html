@@ -12,6 +12,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="styles.css?v=5" />
 
+  <!-- Preload the hero logo for faster paint -->
   <link rel="preload" as="image" href="Cutline_Dark_Theme1.png" imagesrcset="Cutline_Dark_Theme1.png 1x">
 
   <!-- Favicons -->
@@ -93,13 +94,14 @@
   <header class="nav" role="banner">
     <div class="container nav-inner">
       <a class="brand" href="#top" aria-label="Cutline Compliance home">
+        <!-- Keep the original small navbar logo -->
         <img
-          src="Cutline_Dark_Theme1.png?v=1"
+          src="cutline-open-512.png"
           alt="Cutline Compliance logo"
           class="logo"
           loading="eager"
           fetchpriority="high"
-          width="160" height="48"
+          width="48" height="48"
         />
         <span>Cutline Compliance</span>
       </a>
@@ -125,12 +127,14 @@
     <!-- ============== HERO ============== -->
     <section class="hero">
       <div class="container hero-inner">
+        <!-- Replace center hero logo with the new image -->
         <img
-          src="Cutline_checker.png"
+          src="Cutline_Dark_Theme1.png"
           alt="Cutline Compliance"
           class="hero-mark"
-          loading="lazy" decoding="async"
-          width="120" height="120"
+          loading="lazy"
+          decoding="async"
+          width="200" height="200"
         />
 
         <p class="kicker">Food-Safety Education • Non-USDA Consultation</p>
@@ -439,8 +443,7 @@
             </iframe>
           </div>
 
-          <!-- Optional: Calendly embed (replace YOUR_HANDLE or remove this block) -->
-          <!--
+          <!-- Optional: Calendly embed
           <div class="form-embed" aria-label="Schedule a 30-min intro call">
             <iframe src="https://calendly.com/YOUR_HANDLE/intro?hide_event_type_details=1&hide_gdpr_banner=1"
                     title="Schedule Intro Call" loading="lazy"></iframe>
