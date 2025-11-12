@@ -199,3 +199,16 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 @media (min-width: 1400px){
   .grid-3 { gap: 1.4rem; }
 }
+/* Header logo sizing + baseline fix */
+.logo{
+  height:48px;            /* nav height target */
+  width:auto;
+  display:block;          /* removes inline-gap that can misalign on desktop */
+}
+
+/* Keep name on one line beside the logo */
+.brand span{
+  white-space:nowrap;
+  line-height:1;          /* avoids wrapping under logo */
+}
+
