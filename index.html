@@ -127,7 +127,7 @@
     <!-- ============== HERO ============== -->
     <section class="hero">
       <div class="container hero-inner">
-        <!-- Replace center hero logo with the new image -->
+        <!-- Center hero logo (new image) -->
         <img
           src="Cutline_Dark_Theme1.png"
           alt="Cutline Compliance"
@@ -148,7 +148,7 @@
         <div class="cta-row">
           <a href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call" class="btn btn-primary">Book an Intro Call</a>
           <a href="#services" class="btn btn-ghost">Explore Services</a>
-          <a href="mailto:hello@cutlinecompliance.com?subject=Starter%20Kit" class="btn btn-ghost">Download Starter Kit</a>
+          <!-- Removed: Download Starter Kit button (optional) -->
         </div>
 
         <p class="subproof">For non-USDA food service teams who want clear steps, fewer gaps, and audit-ready records.</p>
@@ -471,16 +471,6 @@
     </section>
   </main>
 
-  <!-- Slide-in Starter Kit CTA -->
-  <div class="slidein" id="slidein" aria-live="polite" aria-label="Free Starter Kit offer">
-    <strong>Free Starter Kit</strong><br>
-    Line checks • cooling/holding logs • allergen basics.
-    <div style="margin-top:.5rem; display:flex; gap:.5rem; flex-wrap:wrap">
-      <a class="btn btn-small btn-primary" href="mailto:hello@cutlinecompliance.com?subject=Starter%20Kit">Get it</a>
-      <button class="btn btn-small btn-ghost" id="slideinClose" aria-label="Dismiss Starter Kit offer">Not now</button>
-    </div>
-  </div>
-
   <!-- Mobile floating CTA -->
   <a class="btn btn-primary cta-float" href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call">Book Intro</a>
 
@@ -518,19 +508,6 @@
         }
       });
     });
-
-    // Slide-in CTA (after 20s or 50% scroll)
-    (function(){
-      const s = document.getElementById('slidein');
-      const c = document.getElementById('slideinClose');
-      let shown = false;
-      function show(){ if(!shown){ s.classList.add('show'); shown = true; } }
-      setTimeout(show, 20000);
-      window.addEventListener('scroll', () => {
-        if (!shown && window.scrollY > (document.body.scrollHeight * 0.5)) show();
-      });
-      c && c.addEventListener('click', () => s.remove());
-    })();
 
     // Optional PWA SW registration (safe no-op if file absent)
     if ('serviceWorker' in navigator) {
