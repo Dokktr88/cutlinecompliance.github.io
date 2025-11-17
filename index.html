@@ -148,7 +148,6 @@
         <div class="cta-row">
           <a href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call" class="btn btn-primary">Book an Intro Call</a>
           <a href="#services" class="btn btn-ghost">Explore Services</a>
-          <!-- Removed: Download Starter Kit button (optional) -->
         </div>
 
         <p class="subproof">For non-USDA food service teams who want clear steps, fewer gaps, and audit-ready records.</p>
@@ -277,6 +276,39 @@
         <div class="cta-row">
           <a class="btn btn-primary" href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call">Start Discovery</a>
           <a class="btn btn-ghost" href="#contact">Contact</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============== CUTLINE ASSISTANT SECTION ============== -->
+    <section id="cutline-assistant" class="cutline-assistant-section">
+      <div class="cutline-assistant-inner">
+        <div>
+          <h2>Meet the Cutline Assistant</h2>
+          <p>
+            Ask questions about food-safety education, hazard awareness, pre-op sanitation, and
+            documentation basics. The Cutline Assistant uses publicly available FSIS information to
+            provide education-only support for non- and pre-regulated operations.
+          </p>
+          <ul>
+            <li>🔹 Break down FSIS concepts into plain language</li>
+            <li>🔹 Explain hazards and risk categories (biological, chemical, physical)</li>
+            <li>🔹 Help you think through pre-op and sanitation literacy</li>
+            <li>🔹 Generate training ideas and simple checklists for your team</li>
+          </ul>
+          <p class="cutline-assistant-disclaimer">
+            Educational use only. Not regulatory advice and not affiliated with USDA-FSIS.
+            USDA-regulated establishments should follow official directives, notices, and inspector
+            guidance.
+          </p>
+          <a 
+            href="https://chatgpt.com/share/691a8036-d1cc-8003-931b-301406d22cb0" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="cutline-assistant-cta"
+          >
+            Open Cutline Assistant
+          </a>
         </div>
       </div>
     </section>
@@ -514,5 +546,90 @@
       navigator.serviceWorker.register('/sw.js').catch(()=>{});
     }
   </script>
+
+  <!-- Cutline Compliance Assistant Button -->
+  <a 
+    href="https://chatgpt.com/share/691a8036-d1cc-8003-931b-301406d22cb0" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    class="cutline-assistant-button"
+  >
+    💬 Ask Cutline
+  </a>
+
+  <!-- Inline styles for Cutline Assistant (you can move these into styles.css later) -->
+  <style>
+    .cutline-assistant-button {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0A1F44; /* Primary Navy */
+      color: #F7FAFC;      /* Soft White */
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 14px;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      border: 1px solid #2B7A78; /* Accent Teal */
+      cursor: pointer;
+      z-index: 9999;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cutline-assistant-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 40px rgba(0,0,0,0.45);
+    }
+
+    .cutline-assistant-section {
+      padding: 64px 16px;
+      background: #0A1F44; /* Primary navy */
+      color: #F7FAFC;
+    }
+
+    .cutline-assistant-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .cutline-assistant-section h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
+
+    .cutline-assistant-section p {
+      max-width: 650px;
+    }
+
+    .cutline-assistant-section ul {
+      margin: 16px 0;
+      padding-left: 20px;
+    }
+
+    .cutline-assistant-disclaimer {
+      margin-top: 16px;
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    .cutline-assistant-cta {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: #2B7A78; /* Accent teal */
+      color: #F7FAFC;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid #D4AF37; /* Confidence gold accent */
+    }
+
+    .cutline-assistant-cta:hover {
+      filter: brightness(1.05);
+    }
+  </style>
 </body>
 </html>
