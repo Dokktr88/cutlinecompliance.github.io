@@ -6,7 +6,7 @@
   --text: #e8eaec;
   --muted: #98a2b3;
   --accent: #00bfa6;   /* brand teal */
-  --accent-2: #e35050; /* shield red option */
+  --accent-2: #e35050; /* maroon/red */
 }
 
 *{box-sizing:border-box}
@@ -142,6 +142,17 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .contact-card{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:1.2rem}
 .contact-card ul{margin:.4rem 0 0 1rem}
 
+/* Contact section: make plain links maroon (email + quick links) */
+#contact a:not(.btn):not(.link){
+  color: var(--accent-2);
+  text-decoration: none;
+  font-weight: 700;
+}
+#contact a:not(.btn):not(.link):hover{
+  text-decoration: underline;
+  filter: brightness(1.05);
+}
+
 /* FOOTER */
 .footer{padding:2rem 0;border-top:1px solid var(--border);text-align:center;color:var(--muted)}
 .foot{display:flex;align-items:center;justify-content:space-between}
@@ -179,11 +190,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 /* Resources list spacing */
 #resources .card ul li { margin:.35rem 0; }
-
-/* Services/Products: 4-up on wide screens, auto-stack on smaller */
-@media (min-width: 1200px){
-  #products .grid-3 { grid-template-columns: repeat(4, 1fr); }
-}
 
 /* Slightly tighter card spacing on very large screens */
 @media (min-width: 1400px){
