@@ -1,5 +1,13 @@
-const CACHE = "cutline-v1";
-const ASSETS = ["/", "/styles.css", "/cutline-open-512.png"];
+const CACHE = "cutline-v3";
+const ASSETS = [
+  "/",
+  "/index.html",
+  "/youtube.html",
+  "/styles.css",
+  "/cutline-open-512.png",
+  "/favicon-32.png",
+  "/favicon.ico"
+];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)));
