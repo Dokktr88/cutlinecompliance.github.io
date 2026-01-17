@@ -147,16 +147,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .foot{display:flex;align-items:center;justify-content:space-between}
 .tiny{font-size:.85rem}
 
-/* Slide-in CTA */
-.slidein{
-  position:fixed; right:18px; bottom:-300px; max-width:320px;
-  background:var(--panel); border:1px solid var(--border);
-  border-radius:12px; padding:1rem;
-  box-shadow:0 10px 30px rgba(0,0,0,.45);
-  transition:bottom .5s ease; z-index:70
-}
-.slidein.show{ bottom:18px }
-
 /* Mobile floating CTA */
 .cta-float{
   position:fixed; right:16px; bottom:16px; z-index:60; display:none;
@@ -190,25 +180,25 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 /* Resources list spacing */
 #resources .card ul li { margin:.35rem 0; }
 
-/* Services: 4-up on wide screens, auto-stack on smaller */
+/* Services/Products: 4-up on wide screens, auto-stack on smaller */
 @media (min-width: 1200px){
-  #services .grid-3 { grid-template-columns: repeat(4, 1fr); }
+  #products .grid-3 { grid-template-columns: repeat(4, 1fr); }
 }
 
 /* Slightly tighter card spacing on very large screens */
 @media (min-width: 1400px){
   .grid-3 { gap: 1.4rem; }
 }
+
 /* Header logo sizing + baseline fix */
 .logo{
-  height:48px;            /* nav height target */
+  height:48px;
   width:auto;
-  display:block;          /* removes inline-gap that can misalign on desktop */
+  display:block;
 }
 
 /* Keep name on one line beside the logo */
 .brand span{
   white-space:nowrap;
-  line-height:1;          /* avoids wrapping under logo */
+  line-height:1;
 }
-
