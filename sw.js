@@ -1,16 +1,27 @@
-const CACHE = "cutline-v3";
+const CACHE = "cutline-v2";
+
 const ASSETS = [
   "/",
   "/index.html",
-  "/youtube.html",
   "/styles.css",
+  "/manifest.webmanifest",
+  "/youtube.html",
   "/cutline-open-512.png",
   "/favicon-32.png",
-  "/favicon.ico"
+  "/favicon.ico",
+  "/IMG_9490.PNG",
+  "/IMG_9491.PNG",
+  "/IMG_9492.PNG",
+  "/IMG_9499.PNG",
+  "/IMG_9489.PNG"
 ];
 
 self.addEventListener("install", (e) => {
-  e.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)));
+  e.waitUntil(
+    caches.open(CACHE)
+      .then((c) => c.addAll(ASSETS))
+      .catch(() => {})
+  );
 });
 
 self.addEventListener("activate", (e) => {
