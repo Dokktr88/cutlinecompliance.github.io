@@ -895,14 +895,22 @@ button:focus-visible{
   overflow:hidden;
 }
 
+.linkedin-section .section-head h2{
+  max-width:950px;
+  font-size:clamp(2rem,3.6vw,3.25rem);
+}
+
 .linkedin-grid{
   display:grid;
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(3,minmax(0,1fr));
   gap:1rem;
   align-items:start;
+  justify-items:center;
 }
 
 .linkedin-embed-card{
+  width:100%;
+  max-width:540px;
   min-height:300px;
   border:1px solid var(--border-soft);
   border-radius:var(--radius);
@@ -925,7 +933,23 @@ button:focus-visible{
 }
 
 .linkedin-actions{
-  margin-top:1.25rem;
+  display:flex;
+  justify-content:center;
+  margin-top:1.5rem;
+}
+
+@media (max-width:1180px){
+  .linkedin-grid{
+    grid-template-columns:1fr;
+  }
+
+  .linkedin-embed-card{
+    max-width:560px;
+  }
+
+  .linkedin-embed-card iframe{
+    max-width:504px;
+  }
 }
 
 /* WHO */
