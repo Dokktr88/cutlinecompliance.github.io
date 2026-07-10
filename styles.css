@@ -889,6 +889,45 @@ button:focus-visible{
   color:var(--muted);
 }
 
+/* LINKEDIN SECTION */
+
+.linkedin-section{
+  overflow:hidden;
+}
+
+.linkedin-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1rem;
+  align-items:start;
+}
+
+.linkedin-embed-card{
+  min-height:300px;
+  border:1px solid var(--border-soft);
+  border-radius:var(--radius);
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.06), rgba(255,255,255,.02)),
+    var(--panel);
+  padding:1rem;
+  overflow:hidden;
+  box-shadow:0 18px 60px rgba(0,0,0,.28);
+}
+
+.linkedin-embed-card iframe{
+  display:block;
+  width:100%;
+  max-width:504px;
+  margin:0 auto;
+  border:0;
+  border-radius:12px;
+  background:#fff;
+}
+
+.linkedin-actions{
+  margin-top:1.25rem;
+}
+
 /* WHO */
 
 .chips{
@@ -1230,7 +1269,7 @@ body.popup-open{
   color:var(--muted);
   font-size:1.05rem;
   line-height:1.65;
-  margin:0;
+  margin:0 0 .9rem;
 }
 
 .popup-actions{
@@ -1358,6 +1397,14 @@ body.popup-open{
 
   .brand-copy strong{
     font-size:.9rem;
+  }
+
+  .linkedin-grid{
+    grid-template-columns:1fr;
+  }
+
+  .linkedin-embed-card iframe{
+    max-width:504px;
   }
 }
 
