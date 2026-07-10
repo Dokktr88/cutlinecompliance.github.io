@@ -3,42 +3,340 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+
   <title>Cutline Compliance | Learning Hub</title>
-  <meta name="description" content="Cutline learning hub and education-first approach. Fundamentals launches this weekend. CRD and SPIB coming soon." />
+  <meta name="description" content="Cutline Compliance Learning Hub for food safety readiness education, systems thinking, documentation logic, and compliance readiness fundamentals." />
   <link rel="canonical" href="https://cutlinecompliance.com/learning-hub.html" />
-  <link rel="stylesheet" href="styles.css?v=9" />
-  <meta name="theme-color" content="#0b0e12">
+  <meta name="theme-color" content="#07101d">
+
+  <link rel="stylesheet" href="styles.css?v=20" />
+
+  <link rel="icon" type="image/png" sizes="16x16" href="cutline-favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="cutline-favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="cutline-apple-touch-icon-180x180.png">
+  <link rel="manifest" href="/manifest.webmanifest">
 </head>
 
-<body>
+<body id="top">
+  <a href="#main" class="skip">Skip to content</a>
+
   <header class="nav" role="banner">
     <div class="container nav-inner">
-      <a class="brand" href="index.html">
-        <img src="Cutline_text_1.png" alt="Cutline Compliance logo" class="logo" width="48" height="48" />
-        <span>Cutline Compliance</span>
+      <a class="brand" href="index.html" aria-label="Cutline Compliance home">
+        <img
+          src="cutline-app-icon-192x192.png"
+          alt="Cutline Compliance icon"
+          class="brand-icon"
+          width="48"
+          height="48"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <span class="brand-copy">
+          <strong>CUTLINE COMPLIANCE</strong>
+          <em>People. Processes. Product.</em>
+        </span>
       </a>
-      <nav class="links" aria-label="Primary">
-        <a href="index.html#products">Products</a>
-        <a href="youtube.html">YouTube</a>
-        <a href="index.html#contact" class="btn btn-small">Contact</a>
+
+      <button class="menu-toggle" aria-label="Open menu" aria-controls="site-nav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="links" id="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="services.html#fundamentals">Fundamentals</a>
+        <a href="services.html#crd">CRD</a>
+        <a href="ethics.html">Ethics</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-ghost" href="https://crd.cutlinecompliance.com">Secure Login</a>
+        <a class="btn btn-primary" href="https://crd.cutlinecompliance.com">Start Diagnostic</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="main">
+
+    <section class="hero service-hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">LEARNING HUB</p>
+          <h1>Build the thinking before you build the paperwork.</h1>
+          <p class="lead">
+            The Cutline Learning Hub is being built around food safety readiness, systems thinking,
+            documentation logic, decision authority, verification, and the difference between inspection preparation
+            and true compliance readiness.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-large" href="services.html#fundamentals">View Fundamentals</a>
+            <a class="btn btn-ghost btn-large" href="youtube.html">YouTube Updates</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <img
+            src="cutline-logo.png"
+            alt="Cutline Compliance — People. Processes. Product."
+            class="hero-logo"
+            width="600"
+            height="188"
+            loading="eager"
+            decoding="async"
+          />
+
+          <div class="brand-statement">
+            <p><strong>Systems over shortcuts.</strong></p>
+            <p><strong>Understanding over templates.</strong></p>
+            <p><strong>Readiness over reaction.</strong></p>
+          </div>
+
+          <div class="signal-grid">
+            <div>
+              <span>Current Anchor</span>
+              <p>Compliance Readiness Fundamentals is the first core learning product.</p>
+            </div>
+            <div>
+              <span>Coming Content</span>
+              <p>Future resources will expand into readiness, documentation, and system-pattern topics.</p>
+            </div>
+            <div>
+              <span>Purpose</span>
+              <p>Help food businesses ask better questions before weak points become expensive.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
     <section class="section">
       <div class="container">
-        <h1>Learning Hub</h1>
-        <p class="muted">
-          This page will evolve as the education library expands. For now, all product education starts with Fundamentals.
-        </p>
+        <div class="section-head">
+          <p class="eyebrow">CURRENT LEARNING PRODUCT</p>
+          <h2>Compliance Readiness Fundamentals</h2>
+          <p>
+            The first Cutline learning product teaches how food safety systems are evaluated before inspection ever happens.
+            It is the best starting point for customers who need stronger systems understanding before moving into CRD.
+          </p>
+        </div>
 
-        <div class="cta-row" style="justify-content:flex-start">
-          <a class="btn btn-primary" href="index.html#products">Start with Fundamentals</a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/cutlinecompliance/" target="_blank" rel="noopener">Follow on LinkedIn</a>
+        <div class="crd-grid">
+          <div class="domain-list">
+            <div>
+              <strong>Compliance is not paperwork</strong>
+              <span>Learn why compliance is the outcome of a functioning system, not a checklist.</span>
+            </div>
+            <div>
+              <strong>Inspection is not the system</strong>
+              <span>Understand why inspection reveals system performance but does not create it.</span>
+            </div>
+            <div>
+              <strong>HACCP fails at the decision layer</strong>
+              <span>See why plans break down when authority, training, and operational reality do not align.</span>
+            </div>
+            <div>
+              <strong>Documentation is evidence</strong>
+              <span>Records should explain system function, not create a false sense of protection.</span>
+            </div>
+            <div>
+              <strong>Readiness is built</strong>
+              <span>Strong systems perform before inspection, audit, customer, or operational pressure arrives.</span>
+            </div>
+          </div>
+
+          <aside class="crd-card">
+            <h3>Fundamentals Access</h3>
+
+            <div class="access-option highlight">
+              <span>Training</span>
+              <strong>$297</strong>
+              <p>Foundation training access for the first Cutline learning product.</p>
+            </div>
+
+            <div class="access-option">
+              <span>Included</span>
+              <strong>Workbook</strong>
+              <p>Downloadable support material for system thinking and readiness understanding.</p>
+            </div>
+
+            <a class="btn btn-primary btn-large" href="mailto:hello@cutlinecompliance.com?subject=Compliance%20Readiness%20Fundamentals%20Access">Request Access</a>
+          </aside>
         </div>
       </div>
     </section>
+
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">LEARNING THEMES</p>
+          <h2>The hub will expand around the ideas Cutline is built on.</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Weak Signals</h3>
+            <p>
+              Repeated small issues, workarounds, and decision delays are often early warnings, not random noise.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Decision Authority</h3>
+            <p>
+              Food safety systems fail when responsibility is assigned but authority to act is missing or unclear.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Documentation Logic</h3>
+            <p>
+              Records should tell the truth about how the system works, what changed, and what the organization learned.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Readiness vs. Preparation</h3>
+            <p>
+              Preparation is event-based. Readiness is structural. Strong systems do not need to perform differently when pressure arrives.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Verification That Changes Something</h3>
+            <p>
+              Verification should create insight, adjustment, training updates, resource decisions, or management review.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Systems Over Heroics</h3>
+            <p>
+              Strong systems do not rely on one knowledgeable person, one good supervisor, or one perfect day.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">WHAT IS COMING</p>
+          <h2>This page will grow as Cutline’s learning library expands.</h2>
+          <p>
+            Future updates may include short articles, video walkthroughs, downloadable tools, readiness explainers,
+            system-pattern examples, and YouTube content once the channel is active.
+          </p>
+        </div>
+
+        <div class="mini-steps">
+          <div>
+            <strong>1. Fundamentals</strong>
+            <span>The first full training product and foundation layer.</span>
+          </div>
+          <div>
+            <strong>2. Short Explainers</strong>
+            <span>Focused lessons on common readiness and documentation problems.</span>
+          </div>
+          <div>
+            <strong>3. YouTube</strong>
+            <span>Plain-language walkthroughs once the channel launches.</span>
+          </div>
+          <div>
+            <strong>4. Future Resources</strong>
+            <span>Downloadable tools and learning supports as the ecosystem grows.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-section alt">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">CONTACT</p>
+          <h2>Want access to the first learning product?</h2>
+          <p>
+            Contact Cutline to ask about Compliance Readiness Fundamentals or whether CRD is a better starting point.
+          </p>
+
+          <div class="contact-actions">
+            <a class="btn btn-primary btn-large" href="mailto:hello@cutlinecompliance.com?subject=Compliance%20Readiness%20Fundamentals%20Access">Request Fundamentals Access</a>
+            <a class="btn btn-ghost btn-large" href="services.html">View Services</a>
+          </div>
+
+          <p class="muted small">
+            Prefer email? <a class="contact-link" href="mailto:hello@cutlinecompliance.com">hello@cutlinecompliance.com</a>
+          </p>
+        </div>
+
+        <aside class="contact-card">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="services.html#fundamentals">Compliance Readiness Fundamentals</a></li>
+            <li><a href="services.html#crd">Compliance Readiness Diagnostic</a></li>
+            <li><a href="https://crd.cutlinecompliance.com">CRD Portal</a></li>
+            <li><a href="youtube.html">YouTube</a></li>
+            <li><a href="ethics.html">Ethics & Scope</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
   </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="cutline-logo.png" alt="Cutline Compliance" class="footer-logo" loading="lazy">
+        <p class="tiny muted">
+          © <span id="yr"></span> Cutline Compliance. All rights reserved.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="services.html">Services</a>
+        <a href="https://crd.cutlinecompliance.com">CRD Portal</a>
+        <a href="ethics.html">Ethics & Scope</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <p class="scope-footer">
+        Cutline products are educational and readiness-focused. They do not provide regulatory decisions,
+        approvals, legal advice, audit certification, inspection outcomes, or official agency interpretations.
+      </p>
+    </div>
+  </footer>
+
+  <a class="btn btn-primary cta-float" href="https://crd.cutlinecompliance.com">Start CRD</a>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('site-nav');
+
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        nav.classList.toggle('open');
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const id = a.getAttribute('href').slice(1);
+          const el = document.getElementById(id);
+          if (el) {
+            e.preventDefault();
+            window.scrollTo({ top: el.offsetTop - 78, behavior: 'smooth' });
+            nav.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    }
+  </script>
 </body>
 </html>
