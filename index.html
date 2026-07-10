@@ -691,16 +691,21 @@
       <button class="readiness-popup-close" type="button" aria-label="Close readiness popup" data-popup-close>×</button>
 
       <div class="readiness-popup-content">
-        <p class="eyebrow">READINESS CHECK</p>
-        <h2 id="readiness-popup-title">Find the weak point before pressure does.</h2>
+        <p class="eyebrow">CRD READINESS CHECK</p>
+        <h2 id="readiness-popup-title">What weak point is your system normalizing?</h2>
         <p>
-          Get started with the Cutline readiness pathway and learn how to look at your food safety system
-          through People, Processes, and Product.
+          Most food safety failures do not begin at inspection. They begin as small pressure signals —
+          unclear authority, weak feedback, documentation gaps, repeated workarounds, or problems that slowly
+          become normal.
+        </p>
+        <p>
+          The Compliance Readiness Diagnostic helps surface those patterns before an audit, inspection,
+          customer requirement, or operational failure exposes them for you.
         </p>
 
         <div class="popup-actions">
-          <a class="btn btn-primary btn-large" href="#contact" data-popup-close>Request the Checklist</a>
-          <a class="btn btn-ghost btn-large" href="#products" data-popup-close>View Products</a>
+          <a class="btn btn-primary btn-large" href="#crd" data-popup-close>View CRD Diagnostic</a>
+          <a class="btn btn-ghost btn-large" href="https://crd.cutlinecompliance.com">Start Diagnostic</a>
         </div>
 
         <button class="popup-text-button" type="button" data-popup-close>No thanks</button>
@@ -709,16 +714,16 @@
       <div class="readiness-popup-side">
         <img src="cutline-logo.png" alt="Cutline Compliance" loading="lazy">
         <div>
-          <strong>People.</strong>
-          <span>Responsibility, training, decision clarity.</span>
+          <strong>Pressure signals</strong>
+          <span>Repeated issues, workarounds, unclear responsibility, and weak escalation.</span>
         </div>
         <div>
-          <strong>Processes.</strong>
-          <span>Workflow, verification, feedback, control.</span>
+          <strong>System patterns</strong>
+          <span>Process reality, decision authority, feedback, management control, and documentation logic.</span>
         </div>
         <div>
-          <strong>Product.</strong>
-          <span>Protection through systems that work in reality.</span>
+          <strong>CRD report</strong>
+          <span>A structured readiness report built for internal discussion before pressure exposes the gap.</span>
         </div>
       </div>
     </section>
@@ -778,7 +783,7 @@
     }
 
     const popup = document.getElementById('readiness-popup');
-    const popupStorageKey = 'cutline_readiness_popup_seen_v1';
+    const popupStorageKey = 'cutline_readiness_popup_seen_v2';
 
     function closeReadinessPopup() {
       if (!popup) return;
