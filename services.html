@@ -3,42 +3,579 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Cutline Compliance | Services</title>
-  <meta name="description" content="Cutline Compliance services and product ladder: Fundamentals → CRD → SPIB." />
+
+  <title>Cutline Compliance | Services & Product Pathway</title>
+  <meta name="description" content="Cutline Compliance services and product pathway: Compliance Readiness Fundamentals, Compliance Readiness Diagnostic, and future System Pattern Briefings." />
   <link rel="canonical" href="https://cutlinecompliance.com/services.html" />
-  <link rel="stylesheet" href="styles.css?v=9" />
-  <meta name="theme-color" content="#0b0e12">
+  <meta name="theme-color" content="#07101d">
+
+  <link rel="stylesheet" href="styles.css?v=20" />
+
+  <link rel="icon" type="image/png" sizes="16x16" href="cutline-favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="cutline-favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="cutline-apple-touch-icon-180x180.png">
+  <link rel="manifest" href="/manifest.webmanifest">
 </head>
 
-<body>
+<body id="top">
+  <a href="#main" class="skip">Skip to content</a>
+
   <header class="nav" role="banner">
     <div class="container nav-inner">
-      <a class="brand" href="index.html">
-        <img src="Cutline_text_1.png" alt="Cutline Compliance logo" class="logo" width="48" height="48" />
-        <span>Cutline Compliance</span>
+      <a class="brand" href="index.html" aria-label="Cutline Compliance home">
+        <img
+          src="cutline-app-icon-192x192.png"
+          alt="Cutline Compliance icon"
+          class="brand-icon"
+          width="48"
+          height="48"
+          loading="eager"
+          fetchpriority="high"
+        />
+        <span class="brand-copy">
+          <strong>CUTLINE COMPLIANCE</strong>
+          <em>People. Processes. Product.</em>
+        </span>
       </a>
-      <nav class="links" aria-label="Primary">
-        <a href="index.html#products">Products</a>
-        <a href="index.html#process">Process</a>
-        <a href="index.html#contact" class="btn btn-small">Contact</a>
+
+      <button class="menu-toggle" aria-label="Open menu" aria-controls="site-nav" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="links" id="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="#fundamentals">Fundamentals</a>
+        <a href="#crd">CRD</a>
+        <a href="#briefing">Briefing</a>
+        <a href="#fit">Best Fit</a>
+        <a href="#contact">Contact</a>
+        <a class="btn btn-ghost" href="https://crd.cutlinecompliance.com">Secure Login</a>
+        <a class="btn btn-primary" href="https://crd.cutlinecompliance.com">Start Diagnostic</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <section class="section">
-      <div class="container">
-        <h1>Services</h1>
-        <p class="muted">
-          Cutline is product-led. The fastest way to engage is to start with Fundamentals, then move into CRD and SPIB as they release.
-        </p>
+  <main id="main">
 
-        <div class="cta-row" style="justify-content:flex-start">
-          <a class="btn btn-primary" href="index.html#products">View Products</a>
-          <a class="btn btn-ghost" href="mailto:hello@cutlinecompliance.com?subject=Intro%20Call">Book Intro Call</a>
+    <!-- ================= SERVICES HERO ================= -->
+    <section class="hero service-hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">SERVICES & PRODUCT PATHWAY</p>
+
+          <h1>Understand the system. Diagnose the gaps. Interpret the pattern.</h1>
+
+          <p class="lead">
+            Cutline Compliance is built around a practical food safety readiness pathway:
+            education first, diagnostic visibility second, and interpretation support as the product ladder expands.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary btn-large" href="#fundamentals">Start with Fundamentals</a>
+            <a class="btn btn-ghost btn-large" href="https://crd.cutlinecompliance.com">Open CRD Portal</a>
+          </div>
+        </div>
+
+        <aside class="hero-panel">
+          <img
+            src="cutline-logo.png"
+            alt="Cutline Compliance — People. Processes. Product."
+            class="hero-logo"
+            width="600"
+            height="188"
+            loading="eager"
+            decoding="async"
+          />
+
+          <div class="brand-statement">
+            <p><strong>Train the people.</strong></p>
+            <p><strong>Diagnose the process.</strong></p>
+            <p><strong>Protect the product.</strong></p>
+          </div>
+
+          <div class="signal-grid">
+            <div>
+              <span>Step 1</span>
+              <p>Build the foundation with Compliance Readiness Fundamentals.</p>
+            </div>
+            <div>
+              <span>Step 2</span>
+              <p>Surface readiness signals with the Compliance Readiness Diagnostic.</p>
+            </div>
+            <div>
+              <span>Step 3</span>
+              <p>Prepare for system-pattern interpretation as the briefing offer is finalized.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= PATHWAY OVERVIEW ================= -->
+    <section class="section products-section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">THE CUTLINE ARC</p>
+          <h2>A product-led path from confusion to visibility.</h2>
+          <p>
+            Most food safety problems are not random. Repeated issues, decision delays, unclear authority,
+            weak verification, and documentation that does not match reality are system signals.
+            Cutline products help customers understand those signals before pressure exposes the gaps.
+          </p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card active-product">
+            <div class="product-top">
+              <span class="product-step">Step 1 — Learn</span>
+              <span class="status-pill live">Available</span>
+            </div>
+            <h3>Compliance Readiness Fundamentals</h3>
+            <p class="product-subtitle">Learn how food safety systems are evaluated before inspection ever happens.</p>
+            <p>
+              The foundation product. Built for owners, operators, managers, food entrepreneurs,
+              growing businesses, students, and early-career QA professionals who need a better way
+              to understand what their system is actually doing.
+            </p>
+            <div class="price-box">
+              <strong>$297</strong>
+              <span>Training access</span>
+            </div>
+            <a class="btn btn-primary" href="#fundamentals">View Fundamentals</a>
+          </article>
+
+          <article class="product-card active-product featured-product">
+            <div class="product-top">
+              <span class="product-step">Step 2 — Diagnose</span>
+              <span class="status-pill live">Live Portal</span>
+            </div>
+            <h3>Compliance Readiness Diagnostic</h3>
+            <p class="product-subtitle">See the patterns before they become normalized.</p>
+            <p>
+              The core diagnostic product. CRD surfaces system-pattern signals across process reality,
+              decision authority, feedback and detection, management control, and documentation logic.
+            </p>
+            <div class="split-pricing">
+              <div>
+                <strong>$197</strong>
+                <span>One-time official report</span>
+              </div>
+              <div>
+                <strong>$397/mo</strong>
+                <span>Up to 4 reports per billing cycle</span>
+              </div>
+            </div>
+            <a class="btn btn-primary" href="#crd">View CRD</a>
+          </article>
+
+          <article class="product-card future-product">
+            <div class="product-top">
+              <span class="product-step">Step 3 — Interpret</span>
+              <span class="status-pill pending">In Development</span>
+            </div>
+            <h3>System Pattern Briefing</h3>
+            <p class="product-subtitle">The future interpretation layer for CRD results.</p>
+            <p>
+              This offer is being developed for customers who want help understanding what their diagnostic
+              patterns mean, what matters most, and where internal discussion should focus.
+            </p>
+            <div class="price-box muted-price">
+              <strong>Coming Soon</strong>
+              <span>Offer structure in development</span>
+            </div>
+            <a class="btn btn-ghost" href="#briefing">View Skeleton</a>
+          </article>
         </div>
       </div>
     </section>
+
+    <!-- ================= FUNDAMENTALS ================= -->
+    <section id="fundamentals" class="section alt">
+      <div class="container crd-grid">
+        <div>
+          <p class="eyebrow">PRODUCT 1 — FOUNDATION LAYER</p>
+          <h2>Compliance Readiness Fundamentals</h2>
+          <p>
+            <strong>How Food Safety Systems Are Evaluated — Before Inspection Ever Happens.</strong>
+          </p>
+          <p>
+            This is not inspection prep. It is not regulatory consulting. It teaches how compliance systems
+            actually function, why most failures happen before inspection, and how readiness is built through
+            people, processes, decisions, verification, and documentation that reflects reality.
+          </p>
+
+          <div class="domain-list">
+            <div>
+              <strong>What compliance actually is</strong>
+              <span>Why compliance is a system outcome, not a checklist or inspection performance.</span>
+            </div>
+            <div>
+              <strong>How systems are evaluated</strong>
+              <span>How hazard thinking, process flow, decision points, and pressure conditions shape evaluation.</span>
+            </div>
+            <div>
+              <strong>Why HACCP plans fail in practice</strong>
+              <span>Where plans disconnect from real operations, authority, training, and verification.</span>
+            </div>
+            <div>
+              <strong>Readiness before inspection</strong>
+              <span>Why readiness is built over time and cannot be switched on right before an event.</span>
+            </div>
+            <div>
+              <strong>Documentation as evidence</strong>
+              <span>Why paperwork explains the system but does not replace function or control.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="crd-card">
+          <h3>What You Get</h3>
+
+          <div class="access-option">
+            <span>Training</span>
+            <strong>Self-paced</strong>
+            <p>Recorded modules designed to teach systems-level food safety readiness thinking.</p>
+          </div>
+
+          <div class="access-option">
+            <span>Workbook</span>
+            <strong>Included</strong>
+            <p>Downloadable support material for reflection, terminology, and readiness understanding.</p>
+          </div>
+
+          <div class="access-option highlight">
+            <span>Price</span>
+            <strong>$297</strong>
+            <p>Foundation training access. Built as the best starting point before diagnostic review.</p>
+          </div>
+
+          <a class="btn btn-primary btn-large" href="mailto:hello@cutlinecompliance.com?subject=Compliance%20Readiness%20Fundamentals%20Access">Request Fundamentals Access</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= FUNDAMENTALS FIT ================= -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">WHO FUNDAMENTALS IS FOR</p>
+          <h2>For people who know something is off, but need a better way to understand what they are seeing.</h2>
+          <p>
+            Compliance Readiness Fundamentals is best for customers who are not ready to jump straight into
+            outside help, but need a stronger understanding of how food safety systems actually work under pressure.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Owners & Operators</h3>
+            <p>
+              For people responsible for the business who need to understand why recurring issues keep showing up.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Managers & Teams</h3>
+            <p>
+              For teams that need stronger decision clarity, responsibility alignment, and readiness thinking.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Students & QA Professionals</h3>
+            <p>
+              For early-career food safety professionals who want systems understanding instead of memorized rules.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CRD ================= -->
+    <section id="crd" class="section crd-section alt">
+      <div class="container crd-grid">
+        <div>
+          <p class="eyebrow">PRODUCT 2 — DIAGNOSTIC LAYER</p>
+          <h2>Compliance Readiness Diagnostic</h2>
+          <p>
+            CRD is a secure system-pattern visibility tool that helps customers see how their system behaves when
+            pressure, ambiguity, documentation, authority, and operational reality do not line up.
+          </p>
+
+          <p>
+            It does not score compliance. It does not replace audits, inspections, legal advice, regulatory advice,
+            or professional review. It produces structured visibility for internal readiness discussion.
+          </p>
+
+          <div class="domain-list">
+            <div><strong>Process Reality</strong><span>How work actually happens.</span></div>
+            <div><strong>Decision Authority</strong><span>Who can decide, stop, escalate, or act.</span></div>
+            <div><strong>Feedback & Detection</strong><span>How signals are noticed and acted on.</span></div>
+            <div><strong>Management Control</strong><span>How leadership, pressure, and resources shape system behavior.</span></div>
+            <div><strong>Documentation Logic</strong><span>How records, expectations, and floor reality align.</span></div>
+          </div>
+
+          <div class="hero-actions left-actions">
+            <a class="btn btn-primary btn-large" href="https://crd.cutlinecompliance.com">Open CRD Portal</a>
+            <a class="btn btn-ghost btn-large" href="https://crd.cutlinecompliance.com">Secure Login</a>
+          </div>
+        </div>
+
+        <aside class="crd-card">
+          <h3>CRD Access</h3>
+
+          <div class="access-option">
+            <span>One-Time Official Report</span>
+            <strong>$197</strong>
+            <p>
+              Best for a single readiness snapshot. Includes one official CRD report generation.
+            </p>
+          </div>
+
+          <div class="access-option highlight">
+            <span>Professional Subscription</span>
+            <strong>$397/mo</strong>
+            <p>
+              Best for recurring review. Includes up to 4 official reports per billing cycle.
+            </p>
+          </div>
+
+          <p class="scope-note">
+            The CRD portal is live at crd.cutlinecompliance.com.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= CRD JOURNEY ================= -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">CRD CUSTOMER JOURNEY</p>
+          <h2>From secure access to official Cutline report delivery.</h2>
+          <p>
+            The CRD workflow moves the user from account access, through boundary review and diagnostic completion,
+            to a finalized report for internal readiness discussion.
+          </p>
+        </div>
+
+        <div class="journey-wrap">
+          <img
+            src="CRD_customer.png"
+            alt="Cutline Compliance CRD customer journey from portal access to official report delivery"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+
+        <div class="mini-steps">
+          <div>
+            <strong>1. Access</strong>
+            <span>Create an account, sign in, and choose one-time or subscription access.</span>
+          </div>
+          <div>
+            <strong>2. Boundary Review</strong>
+            <span>Confirm the scope and educational use of the diagnostic.</span>
+          </div>
+          <div>
+            <strong>3. Diagnostic</strong>
+            <span>Complete five sections based on current operating reality.</span>
+          </div>
+          <div>
+            <strong>4. Report</strong>
+            <span>Finalize the assessment and download the official Cutline report.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= BRIEFING SKELETON ================= -->
+    <section id="briefing" class="section alt">
+      <div class="container crd-grid">
+        <div>
+          <p class="eyebrow">PRODUCT 3 — INTERPRETATION LAYER</p>
+          <h2>System Pattern Briefing</h2>
+          <p>
+            The System Pattern Briefing is still being developed. The intended role is to help customers move
+            from diagnostic output to clearer understanding of what the patterns may mean, what deserves attention,
+            and where internal readiness discussion should focus.
+          </p>
+
+          <p>
+            For now, this offer should be viewed as a future interpretation layer, not a finalized product.
+            Cutline is intentionally keeping the scope narrow until the offer structure is complete.
+          </p>
+
+          <div class="domain-list">
+            <div>
+              <strong>Report walkthrough</strong>
+              <span>Future support for understanding CRD output and pattern language.</span>
+            </div>
+            <div>
+              <strong>Pattern meaning</strong>
+              <span>Discussion of what repeated signals, drift, or pressure points may indicate.</span>
+            </div>
+            <div>
+              <strong>Priority clarity</strong>
+              <span>Helping leadership understand what may deserve attention first.</span>
+            </div>
+            <div>
+              <strong>Boundary controlled</strong>
+              <span>Designed to respect scope, avoid overreach, and maintain appropriate use.</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="crd-card">
+          <h3>Current Status</h3>
+
+          <div class="access-option highlight">
+            <span>In Development</span>
+            <strong>Not Finalized</strong>
+            <p>
+              Product structure, pricing, booking flow, and boundaries are still being refined.
+            </p>
+          </div>
+
+          <p class="scope-note">
+            If you are interested in future interpretation support after using CRD, contact Cutline and ask about briefing availability.
+          </p>
+
+          <a class="btn btn-ghost btn-large" href="mailto:hello@cutlinecompliance.com?subject=System%20Pattern%20Briefing%20Interest">Ask About Briefings</a>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ================= BEST FIT ================= -->
+    <section id="fit" class="section">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow">WHICH PRODUCT FITS?</p>
+          <h2>Choose the path based on what you need to understand right now.</h2>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Start with Fundamentals if...</h3>
+            <p>
+              You need to understand why food safety systems fail, how readiness works, and why paperwork alone
+              does not create control.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Use CRD if...</h3>
+            <p>
+              You already know you need a structured way to surface readiness signals, system behavior patterns,
+              and documentation-reality gaps.
+            </p>
+          </div>
+
+          <div class="card">
+            <h3>Watch for Briefings if...</h3>
+            <p>
+              You want future support understanding CRD results, pattern meaning, and leadership-level priorities.
+            </p>
+          </div>
+        </div>
+
+        <div class="hero-actions left-actions">
+          <a class="btn btn-primary btn-large" href="mailto:hello@cutlinecompliance.com?subject=Which%20Cutline%20Product%20Fits">Ask Which Product Fits</a>
+          <a class="btn btn-ghost btn-large" href="https://crd.cutlinecompliance.com">Open CRD Portal</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section id="contact" class="section contact-section alt">
+      <div class="container contact-grid">
+        <div>
+          <p class="eyebrow">CONTACT</p>
+          <h2>Need help choosing the right path?</h2>
+          <p>
+            Contact Cutline if you are not sure whether to start with Fundamentals, move directly into CRD,
+            or wait for the System Pattern Briefing offer.
+          </p>
+
+          <div class="contact-actions">
+            <a class="btn btn-primary btn-large" href="mailto:hello@cutlinecompliance.com?subject=Cutline%20Services%20Inquiry">Contact Cutline</a>
+            <a class="btn btn-ghost btn-large" href="index.html">Back to Home</a>
+          </div>
+
+          <p class="muted small">
+            Prefer email? <a class="contact-link" href="mailto:hello@cutlinecompliance.com">hello@cutlinecompliance.com</a>
+          </p>
+        </div>
+
+        <aside class="contact-card">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="#fundamentals">Compliance Readiness Fundamentals</a></li>
+            <li><a href="#crd">Compliance Readiness Diagnostic</a></li>
+            <li><a href="https://crd.cutlinecompliance.com">CRD Portal</a></li>
+            <li><a href="#briefing">System Pattern Briefing</a></li>
+            <li><a href="ethics.html">Ethics & Scope</a></li>
+            <li><a href="learning-hub.html">Learning Hub</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
   </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <img src="cutline-logo.png" alt="Cutline Compliance" class="footer-logo" loading="lazy">
+        <p class="tiny muted">
+          © <span id="yr"></span> Cutline Compliance. All rights reserved.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="#fundamentals">Fundamentals</a>
+        <a href="https://crd.cutlinecompliance.com">CRD Portal</a>
+        <a href="ethics.html">Ethics & Scope</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <p class="scope-footer">
+        Cutline products are educational and readiness-focused. They do not provide regulatory decisions,
+        approvals, legal advice, audit certification, inspection outcomes, or official agency interpretations.
+      </p>
+    </div>
+  </footer>
+
+  <a class="btn btn-primary cta-float" href="https://crd.cutlinecompliance.com">Start CRD</a>
+
+  <script>
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    const btn = document.querySelector('.menu-toggle');
+    const nav = document.getElementById('site-nav');
+
+    if (btn && nav) {
+      btn.addEventListener('click', () => {
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        nav.classList.toggle('open');
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+          const id = a.getAttribute('href').slice(1);
+          const el = document.getElementById(id);
+          if (el) {
+            e.preventDefault();
+            window.scrollTo({ top: el.offsetTop - 78, behavior: 'smooth' });
+            nav.classList.remove('open');
+            btn.setAttribute('aria-expanded', 'false');
+          }
+        });
+      });
+    }
+  </script>
 </body>
 </html>
