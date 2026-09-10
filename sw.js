@@ -2,7 +2,7 @@
 // Network-first for pages so the site does not get stuck on old HTML.
 // Cache-first for same-origin static assets after first load.
 
-const CACHE_VERSION = "cutline-v22";
+const CACHE_VERSION = "cutline-v23";
 const STATIC_CACHE = `${CACHE_VERSION}-static`;
 
 const STATIC_ASSETS = [
@@ -12,6 +12,8 @@ const STATIC_ASSETS = [
   "/learning-hub.html",
   "/ethics.html",
   "/youtube.html",
+  "/intelligence/",
+  "/intelligence/producer-direct-interstate-meat-commerce/",
   "/styles.css",
 
   "/cutline-logo.png",
