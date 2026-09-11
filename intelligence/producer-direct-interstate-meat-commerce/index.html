@@ -50,6 +50,33 @@
 <section class="report-section"><div class="container"><div class="section-head"><p class="eyebrow">PUBLICATION ACCESS</p><h2>Read the analysis. Download the publication.</h2><p>The full report is the complete evidence base; the policy brief is the concise executive summary.</p></div><div class="publication-access"><h3>PDF publication copies</h3><p>Both customer-facing publication files are provided directly from Cutline Compliance.</p><div class="publication-buttons"><a class="btn btn-primary" href="../../downloads/producer-direct-interstate-meat-commerce-full-report.pdf" download>Download full report</a><a class="btn btn-ghost" href="../../downloads/producer-direct-interstate-meat-commerce-policy-brief.pdf" download>Download policy brief</a></div></div><div class="disclosure-box"><p><strong>Independence statement.</strong> Independent educational and policy analysis based exclusively on publicly available information. This material does not represent the views, findings, policy, or official position of USDA, FSIS, or any other government agency. PDIMC and DPI are Cutline-created policy recommendations, not existing FSIS programs.</p><p><strong>Drafting disclosure.</strong> Prepared by Cutline Compliance using AI-assisted research synthesis and drafting under human direction, domain review, source verification, and final editorial approval. The narrative prose was generated and revised with ChatGPT. Cutline Compliance directed the analysis, supplied domain context, verified sources and claims, and approved the final content. This work is distributed as public and professional policy intelligence, not as original human academic scholarship.</p></div></div></section>
 </main>
 <footer class="footer"><div class="container footer-grid"><div><img src="../../cutline-logo.png" alt="Cutline Compliance" class="footer-logo" /><p class="tiny muted">© <span id="yr"></span> Cutline Compliance. All rights reserved.</p></div><div class="footer-links"><a href="../../">Home</a><a href="../">Intelligence</a><a href="../../learning-hub.html">Learning Hub</a><a href="../../ethics.html">Ethics & Scope</a><a href="https://www.linkedin.com/in/cutlinecompliance/" target="_blank" rel="noopener">LinkedIn</a></div></div></footer>
-<script>document.getElementById('yr').textContent=new Date().getFullYear();const btn=document.querySelector('.menu-toggle'),nav=document.getElementById('site-nav');if(btn&&nav){btn.addEventListener('click',()=>{const open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open');});}document.querySelectorAll('.section-nav a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();window.scrollTo({top:el.offsetTop-125,behavior:'smooth'});}}));</script>
+<script>
+document.getElementById('yr').textContent=new Date().getFullYear();
+const btn=document.querySelector('.menu-toggle'),nav=document.getElementById('site-nav');
+if(btn&&nav){btn.addEventListener('click',()=>{const open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));nav.classList.toggle('open');});}
+document.querySelectorAll('.section-nav a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const el=document.querySelector(a.getAttribute('href'));if(el){e.preventDefault();window.scrollTo({top:el.offsetTop-125,behavior:'smooth'});}}));
+
+const pdimcAnalytics={
+  publication:'producer_direct_interstate_meat_commerce',
+  content_type:'policy_intelligence'
+};
+function trackPdimcEvent(eventName,element,extra={}){
+  if(typeof gtag!=='function'||!element)return;
+  gtag('event',eventName,{
+    ...pdimcAnalytics,
+    link_text:(element.textContent||'').trim(),
+    link_url:element.href||'',
+    ...extra
+  });
+}
+const readAnalysis=document.querySelector('.report-actions a[href="#judgments"]');
+const reviewMethodology=document.querySelector('.report-actions a[href="#methodology"]');
+const fullReport=document.querySelector('.publication-buttons a[href$="producer-direct-interstate-meat-commerce-full-report.pdf"]');
+const policyBrief=document.querySelector('.publication-buttons a[href$="producer-direct-interstate-meat-commerce-policy-brief.pdf"]');
+if(readAnalysis)readAnalysis.addEventListener('click',()=>trackPdimcEvent('pdimc_read_analysis',readAnalysis,{engagement_type:'onsite_analysis'}));
+if(reviewMethodology)reviewMethodology.addEventListener('click',()=>trackPdimcEvent('pdimc_review_methodology',reviewMethodology,{engagement_type:'methodology'}));
+if(fullReport)fullReport.addEventListener('click',()=>trackPdimcEvent('pdimc_full_report_download',fullReport,{asset_type:'full_report',file_name:'producer-direct-interstate-meat-commerce-full-report.pdf'}));
+if(policyBrief)policyBrief.addEventListener('click',()=>trackPdimcEvent('pdimc_policy_brief_download',policyBrief,{asset_type:'policy_brief',file_name:'producer-direct-interstate-meat-commerce-policy-brief.pdf'}));
+</script>
 </body>
 </html>
