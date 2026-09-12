@@ -221,3 +221,227 @@
     transition-duration:.01ms!important;
   }
 }
+
+/* CC-STD-001 / CC-STD-004 brand compliance skin */
+:root{
+  --cutline-red:#C8102E;
+  --cutline-black:#111111;
+  --cutline-dark-gray:#666666;
+  --cutline-light-gray:#F5F5F5;
+  --cutline-white:#FFFFFF;
+  --bg:#ffffff;
+  --bg-2:#f7f7f8;
+  --panel:#ffffff;
+  --panel-2:#f5f5f5;
+  --panel-3:#eeeeef;
+  --border:#d9dce1;
+  --border-soft:rgba(17,17,17,.10);
+  --text:#111111;
+  --muted:#5f636b;
+  --muted-2:#737780;
+  --red:#C8102E;
+  --red-dark:#8f0b21;
+  --red-soft:rgba(200,16,46,.08);
+  --gold:#8c742a;
+  --white:#ffffff;
+  --shadow:0 14px 36px rgba(17,17,17,.08);
+  --red-text:#A70D26;
+}
+
+html{background:#fff}
+body{
+  background:#fff;
+  color:var(--cutline-black);
+  font-family:Arial,Helvetica,system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+h1,h2,h3,h4,h5,h6{color:var(--cutline-black)}
+
+.nav{
+  background:rgba(255,255,255,.96);
+  border-bottom:1px solid #dedfe3;
+  box-shadow:0 4px 18px rgba(17,17,17,.035);
+}
+.brand-icon{border-color:#dedfe3;box-shadow:none}
+.brand-copy strong{color:#111}
+.brand-copy em{color:#666}
+.links a{color:#292c31;opacity:1}
+.links a:hover,.links a:focus-visible{color:var(--cutline-red)}
+.menu-toggle span{background:#111}
+a:focus-visible,button:focus-visible{outline-color:var(--cutline-red)}
+
+.btn-primary{background:var(--cutline-red);border-color:var(--cutline-red);color:#fff;box-shadow:none}
+.btn-primary:hover{filter:brightness(.94)}
+.btn-ghost{background:#fff;border-color:#bfc3c9;color:#111}
+.btn-ghost:hover{background:#f5f5f5;border-color:#9298a0}
+
+.hero{
+  background:
+    linear-gradient(90deg,rgba(200,16,46,.035) 0 1px,transparent 1px 100%),
+    linear-gradient(180deg,rgba(17,17,17,.025) 0 1px,transparent 1px 100%),
+    linear-gradient(180deg,#fff 0%,#fafafb 100%);
+}
+.hero::before{opacity:.18}
+.hero-copy h1{color:#111}
+.eyebrow{color:var(--cutline-red)}
+.eyebrow::before{background:var(--cutline-red)}
+.lead{color:#555b63}
+.proof-strip span{border-color:#dadde2;background:#fff;color:#34383e}
+
+/* One controlled dark anchor for the approved logo treatment. */
+.hero-panel{background:#111;border-color:#242424;box-shadow:0 18px 44px rgba(17,17,17,.13)}
+.hero-panel h1,.hero-panel h2,.hero-panel h3,.hero-panel h4,.hero-panel strong,.hero-panel span{color:#fff}
+.hero-panel .hero-logo{background:#07111f;border-color:rgba(255,255,255,.14)}
+.hero-panel .brand-statement{background:#171717;border-left-color:var(--cutline-red)}
+.hero-panel .brand-statement p{color:#fff}
+.hero-panel .signal-grid div{background:#181818;border-color:rgba(255,255,255,.09)}
+.hero-panel .signal-grid p{color:#c8ccd1}
+.hero-panel .signal-grid div:first-child span{color:#ff6b7c}
+
+.cred-strip-section{background:#f5f5f5;border-color:#e0e1e4}
+.cred-strip div{background:#fff;border-color:#dfe1e5;box-shadow:none}
+.cred-strip strong{color:#111}
+.cred-strip span{color:#62666d}
+
+.section{background:#fff}
+.alt{background:#f7f7f8;border-color:#e6e7e9}
+.section-head h2,.intelligence-grid h2,.crd-grid h2,.contact-grid h2,.about-copy h2{color:#111}
+.section-head p,.intelligence-grid p,.crd-grid p,.contact-grid p,.about-copy p{color:#5e6269}
+.intelligence-section{background:radial-gradient(760px 300px at 0% 0%,rgba(200,16,46,.045),transparent 62%),#fff}
+.intelligence-card,.crd-card{background:#fff;border:1px solid #d9dce1;border-top:3px solid var(--cutline-red);box-shadow:var(--shadow)}
+.intelligence-card h3,.crd-card h3{color:#111}
+
+.academy-platform-strip{background:#fff;border:1px solid #d9dce1;border-left:4px solid var(--cutline-red);box-shadow:0 8px 24px rgba(17,17,17,.04)}
+.academy-platform-strip h3{color:#111}
+.academy-platform-strip p{color:#5e6269}
+.academy-platform-strip .eyebrow{color:var(--cutline-red)}
+
+.product-card,.card,.steps li,.contact-card,details{background:#fff;border-color:#d9dce1;box-shadow:0 8px 24px rgba(17,17,17,.045)}
+.product-card::before{background:linear-gradient(90deg,rgba(200,16,46,.035),transparent 38%)}
+.featured-product{border-color:rgba(200,16,46,.55);box-shadow:0 10px 28px rgba(200,16,46,.07)}
+.future-product{opacity:1}
+.product-step{color:#555b63}
+.status-pill{border-color:#d6d9de;color:#4e535a;background:#f5f5f5}
+.status-pill.pending{color:#4e535a;background:#f5f5f5}
+.status-pill.live{color:#8f0b21;background:rgba(200,16,46,.08);border-color:rgba(200,16,46,.28)}
+.product-card h3,.card h3,.product-subtitle,.steps strong{color:#111}
+.product-card p,.card p,.steps span{color:#60656c}
+.clean-list li{color:#42474e}
+.clean-list li::before{background:var(--cutline-red)}
+
+.price-box,.split-pricing div,.domain-list div,.access-option,.mini-steps div,.about-points div{background:#fff;border-color:#d9dce1}
+.price-box strong,.split-pricing strong,.domain-list strong,.mini-steps strong,.access-option strong{color:#111}
+.price-box span,.split-pricing span,.domain-list span,.mini-steps span,.access-option p,.about-points span{color:#62666d}
+.access-option.highlight{background:#fff7f8;border-color:rgba(200,16,46,.34)}
+.access-option.highlight span{color:#7c0b1c}
+.access-option.highlight p{color:#42474e}
+.access-option span{color:#5a5f66}
+.scope-note{border-color:#dedfe3}
+.link-inline,.contact-link{color:#111}
+.link-inline:hover,.contact-link:hover{color:var(--cutline-red)}
+
+.chips span{background:#fff;border-color:#d9dce1;color:#33373d}
+summary{color:#111}
+details p{color:#62666d}
+.boundary-note{border-color:rgba(200,16,46,.28);border-left-color:var(--cutline-red);background:#fff7f8;color:#555b63}
+.boundary-note strong,.boundary-note a{color:#111}
+.boundary-note a:hover{color:var(--cutline-red)}
+.contact-card a{color:#33373d}
+.contact-card a:hover{color:var(--cutline-red)}
+
+.legal-page{background:#fff}
+.legal-copy section{background:#fff;border-color:#dedfe3;box-shadow:0 6px 18px rgba(17,17,17,.035)}
+.legal-copy h2,.legal-copy h3{color:#111}
+.legal-copy p,.legal-copy li{color:#555b63}
+.error-code{color:#e3e4e7}
+
+/* Footer is the secondary dark anchor. */
+.footer{background:#111;border-top:3px solid var(--cutline-red)}
+.footer,.footer h1,.footer h2,.footer h3,.footer strong{color:#fff}
+.footer-links a,.legal-footer-links a,.privacy-choice-button{color:#d9dce1}
+.footer .muted,.footer .tiny{color:#bfc4cb}
+.footer-links a:hover,.legal-footer-links a:hover,.privacy-choice-button:hover,.privacy-choice-button:focus-visible{color:#fff}
+.scope-footer{color:#aeb3ba}
+.legal-footer-links{border-top-color:rgba(255,255,255,.12)}
+
+.consent-banner{background:#fff;border-top:3px solid var(--cutline-red);box-shadow:0 -12px 38px rgba(17,17,17,.14)}
+.consent-banner strong{color:#111}
+.consent-banner p{color:#555b63}
+.consent-banner__actions a{color:#111}
+
+.paper-promo{background:#fff;border:1px solid #d9dce1;border-top:4px solid var(--cutline-red);box-shadow:0 22px 60px rgba(17,17,17,.18)}
+.paper-promo__close{background:#f5f5f5;border-color:#d8dbe0;color:#111}
+.paper-promo__close:hover,.paper-promo__close:focus-visible{border-color:var(--cutline-red);color:var(--cutline-red)}
+.paper-promo .eyebrow{color:var(--cutline-red)}
+.paper-promo h2{color:#111}
+.paper-promo p:not(.eyebrow){color:#555b63}
+.paper-promo__download{color:#111}
+.paper-promo__download:hover,.paper-promo__download:focus-visible{color:var(--cutline-red)}
+
+/* Dark visual/image frames remain dark by design; surrounding interface stays light. */
+.journey-wrap{background:#111;border-color:#d9dce1;box-shadow:var(--shadow)}
+
+@media (max-width:760px){
+  .nav{background:rgba(255,255,255,.985)}
+  .links{background:#fff;border-color:#dedfe3;box-shadow:0 14px 34px rgba(17,17,17,.10)}
+  .links a{color:#222}
+}
+
+/* Intelligence hub: light editorial surface with one controlled dark evidence panel. */
+.intel-hero{background:radial-gradient(circle at 82% 18%,rgba(200,16,46,.055),transparent 36%),linear-gradient(180deg,#fff 0%,#f8f8f9 100%) !important}
+.intel-hero h1{color:#111}
+.intel-hero .lead{color:#555b63}
+.intel-panel{background:#111 !important;border-color:#292929 !important;box-shadow:0 18px 44px rgba(17,17,17,.13) !important}
+.intel-panel strong{color:#fff !important}
+.intel-panel p{color:#c8ccd1 !important}
+.intel-panel .eyebrow{color:#ff6b7c !important}
+.publication-card,.method-card{background:#fff !important;border-color:#d9dce1 !important;box-shadow:0 10px 30px rgba(17,17,17,.06) !important}
+.publication-card h2,.method-card h3{color:#111}
+.publication-card p,.method-card p,.signal-list li{color:#555b63}
+.publication-side{background:#f7f7f8 !important;border-left-color:#dedfe3 !important}
+.publication-label{color:#8f0b21 !important;background:#fff7f8 !important;border-color:rgba(200,16,46,.32) !important}
+.signal-list li{border-bottom-color:#e1e3e6 !important}
+.boundary{background:#f7f7f8 !important;border-top-color:#e3e4e7 !important;border-bottom-color:#e3e4e7 !important}
+.boundary-box{background:#fff7f8 !important;border-left-color:var(--cutline-red) !important}
+.boundary-box p{color:#42474e !important}
+.boundary-box .muted{color:#555b63 !important}
+.boundary-box .eyebrow{color:#8f0b21 !important}
+@media(max-width:900px){.publication-side{border-left:0 !important;border-top-color:#dedfe3 !important}}
+
+/* Published research: editorial report treatment aligned to the controlled brand. */
+.report-hero{background:radial-gradient(circle at 84% 15%,rgba(200,16,46,.055),transparent 34%),linear-gradient(180deg,#fff 0%,#f8f8f9 100%) !important}
+.report-hero h1,.report-hero h2{color:#111}
+.report-hero .lead{color:#555b63}
+.report-meta span{color:#454a51 !important;background:#fff !important;border-color:#d6d9de !important}
+.policy-principle{background:#fff7f8 !important;border-color:rgba(200,16,46,.32) !important}
+.policy-principle p{color:#42474e}
+.section-nav{background:rgba(255,255,255,.97) !important;border-top-color:#dedfe3 !important;border-bottom-color:#dedfe3 !important;box-shadow:0 5px 18px rgba(17,17,17,.045)}
+.section-nav a{color:#3d4249 !important}
+.section-nav a:hover,.section-nav a:focus-visible{color:var(--cutline-red) !important}
+.report-section{background:#fff}
+.report-section.alt{background:#f7f7f8 !important;border-top-color:#e3e4e7 !important;border-bottom-color:#e3e4e7 !important}
+.post-publication-wrap{background:#f7f7f8 !important;border-top-color:#dedfe3 !important;border-bottom-color:#dedfe3 !important}
+.post-publication-update{background:#fff !important;border-color:#d9dce1 !important}
+.post-publication-update p{color:#42474e !important}
+.post-publication-update a{color:#8f0b21 !important}
+.judgment-card,.system-card,.framework-item,.method-box,.source-box,.faq-item{background:#fff !important;border-color:#d9dce1 !important;box-shadow:0 7px 22px rgba(17,17,17,.04)}
+.judgment-card:first-child{border-color:rgba(200,16,46,.34) !important}
+.judgment-card h3,.system-card h3,.framework-item h3,.method-box h3{color:#111}
+.judgment-card p,.system-card p,.framework-item p,.method-box li,.source-box p{color:#555b63}
+.confidence{color:#2f4f43 !important;background:#eef7f3 !important;border-color:#9dcab8 !important}
+.status.yes{color:#315d49 !important;background:#eef7f3;border:1px solid #acd0c0;border-radius:999px;padding:5px 8px}
+.status.limit{color:#6a5511 !important;background:#fff8df;border:1px solid #d9c47b;border-radius:999px;padding:5px 8px}
+.legal-callout{background:#fff7f8 !important;border-left-color:var(--cutline-red) !important}
+.legal-callout p,.legal-callout a{color:#33383e !important}
+.function-list div{background:#fff !important;border-color:#d9dce1 !important;color:#42474e}
+.position-box,.nebraska-stat{background:#fff !important;border-color:#d9dce1 !important;box-shadow:0 7px 22px rgba(17,17,17,.04)}
+.nebraska-stat{border-top:3px solid var(--cutline-red) !important}
+.nebraska-stat strong{color:#111 !important}
+.nebraska-stat span{color:#555b63 !important}
+.framework-item:before{color:#fff !important;background:var(--cutline-red) !important;border-color:var(--cutline-red) !important}
+.source-box a{color:#8f0b21 !important}
+.faq-item summary{color:#111 !important}
+.faq-item p{color:#555b63 !important}
+.disclosure-box{background:#f5f5f5 !important;border-color:#d9dce1 !important}
+.disclosure-box strong{color:#111 !important}
+.publication-access{background:#fff7f8 !important;border-color:rgba(200,16,46,.28) !important}
+.publication-access p{color:#42474e !important}
