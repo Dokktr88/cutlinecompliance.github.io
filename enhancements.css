@@ -252,7 +252,7 @@ html{background:#fff}
 body{
   background:#fff;
   color:var(--cutline-black);
-  font-family:Arial,Helvetica,system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-family:Aptos,Arial,Helvetica,system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 h1,h2,h3,h4,h5,h6{color:var(--cutline-black)}
 

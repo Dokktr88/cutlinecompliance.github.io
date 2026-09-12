@@ -220,7 +220,7 @@ def main() -> int:
             errors.append(f"{path.relative_to(ROOT)}: image exceeds 2 MB ({path.stat().st_size:,} bytes)")
 
     brand_css = (ROOT / "enhancements.css").read_text(encoding="utf-8")
-    for token in ("--cutline-red:#C8102E", "--cutline-black:#111111", "--cutline-light-gray:#F5F5F5"):
+    for token in ("--cutline-red:#C8102E", "--cutline-black:#111111", "--cutline-light-gray:#F5F5F5", 'font-family:Aptos,Arial,Helvetica,system-ui,-apple-system,"Segoe UI",sans-serif;'):
         if token not in brand_css:
             errors.append(f"enhancements.css: controlled Cutline brand token missing: {token}")
 
