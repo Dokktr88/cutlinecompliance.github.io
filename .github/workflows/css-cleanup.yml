@@ -1,0 +1,32 @@
+name: Guarded CSS cleanup
+
+on:
+  push:
+    branches:
+      - website-v2.1-hardening
+
+permissions:
+  contents: write
+
+jobs:
+  cleanup:
+    if: ${{ !contains(github.event.head_commit.message, '[css-cleaned]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: website-v2.1-hardening
+          fetch-depth: 0
+
+      - name: Remove proven-unused legacy CSS
+        run: python tools/cleanup_legacy_css.py
+
+      - name: Commit cleanup
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add styles.css
+          git commit -m "Remove proven-unused legacy CSS [css-cleaned]"
+          git push origin HEAD:website-v2.1-hardening
