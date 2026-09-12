@@ -1,0 +1,77 @@
+name: Tighten PDIMC site language
+
+on:
+  push:
+    branches:
+      - tighten-pdimc-site-language
+    paths:
+      - .github/workflows/tighten-pdimc-language.yml
+
+permissions:
+  contents: write
+
+jobs:
+  tighten-language:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: tighten-pdimc-site-language
+          fetch-depth: 0
+
+      - name: Apply exact language updates
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          files = [
+              Path('index.html'),
+              Path('intelligence/index.html'),
+              Path('intelligence/producer-direct-interstate-meat-commerce/index.html'),
+          ]
+
+          old_opening = 'Ranchers already have lawful ways to sell producer-owned inspected meat across state lines.'
+          new_opening = 'Ranchers already can sell producer-owned inspected meat across State lines when the product moves through an authorized interstate inspection pathway.'
+
+          for path in files:
+              text = path.read_text(encoding='utf-8')
+              count = text.count(old_opening)
+              if count != 1:
+                  raise SystemExit(f'{path}: expected 1 opening-language match, found {count}')
+              path.write_text(text.replace(old_opening, new_opening, 1), encoding='utf-8')
+
+          pdimc = Path('intelligence/producer-direct-interstate-meat-commerce/index.html')
+          text = pdimc.read_text(encoding='utf-8')
+
+          old_css = '.nebraska-stat strong{display:block;font-size:4rem;line-height:1;color:#fff}'
+          new_css = '.nebraska-stat strong{display:block;font-size:1.35rem;line-height:1.15;color:#fff;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.65rem}'
+          if text.count(old_css) != 1:
+              raise SystemExit('Expected one Nebraska-stat CSS match')
+          text = text.replace(old_css, new_css, 1)
+
+          old_nebraska = '<aside class="nebraska-stat"><strong>30</strong><span>States operated meat-inspection programs under cooperative agreements with FSIS in 2026. A nationally complete strategy must also account for Federal-only States.</span></aside>'
+          new_nebraska = '<aside class="nebraska-stat"><strong>Federal-only States</strong><span>States without an active State meat-inspection program require a different lawful inspected route. A nationally complete strategy cannot assume every State will build its own program.</span></aside>'
+          if text.count(old_nebraska) != 1:
+              raise SystemExit('Expected one Nebraska-stat content match')
+          text = text.replace(old_nebraska, new_nebraska, 1)
+
+          old_disclosure = 'PDIMC and DPI are Cutline-created policy recommendations, not existing FSIS programs.</p>'
+          new_disclosure = 'PDIMC and DPI are Cutline-created policy recommendations, not existing FSIS programs. No nonpublic government information was used in this analysis.</p>'
+          if text.count(old_disclosure) != 1:
+              raise SystemExit('Expected one disclosure match')
+          text = text.replace(old_disclosure, new_disclosure, 1)
+
+          pdimc.write_text(text, encoding='utf-8')
+          PY
+
+      - name: Commit changes
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html intelligence/index.html intelligence/producer-direct-interstate-meat-commerce/index.html
+          git diff --cached --check
+          git commit -m "tighten PDIMC public-site language"
+          git push origin tighten-pdimc-site-language
