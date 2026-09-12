@@ -1,12 +1,15 @@
 {
+  "id": "/",
   "name": "Cutline Compliance",
   "short_name": "Cutline",
-  "description": "Food safety readiness systems, training, diagnostics, and system-pattern visibility tools.",
+  "description": "Food safety intelligence, professional education, readiness tools, and public-source analysis.",
+  "lang": "en-US",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "background_color": "#050b14",
   "theme_color": "#07101d",
+  "categories": ["business", "education", "productivity"],
   "icons": [
     {
       "src": "/cutline-app-icon-192x192.png",
