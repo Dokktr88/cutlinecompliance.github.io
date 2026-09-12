@@ -133,7 +133,68 @@
   margin:0 0 1.5rem;
 }
 
+
+.academy-platform-strip{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  gap:1.5rem;
+  align-items:center;
+  margin:0 0 1.5rem;
+  padding:1.35rem 1.5rem;
+  border:1px solid rgba(255,255,255,.10);
+  border-left:4px solid var(--red-text);
+  border-radius:16px;
+  background:linear-gradient(120deg,rgba(255,255,255,.045),rgba(255,255,255,.018));
+}
+.academy-platform-strip h3{margin:.1rem 0 .35rem;color:#fff;font-size:1.35rem}
+.academy-platform-strip p{margin:.2rem 0;color:#c2c9d4}
+.academy-platform-strip .eyebrow{color:var(--red-text);margin-bottom:.25rem}
+
+.paper-promo{
+  position:fixed;
+  right:1.2rem;
+  bottom:1.2rem;
+  z-index:360;
+  width:min(430px,calc(100vw - 2rem));
+  padding:1.35rem;
+  border:1px solid rgba(255,255,255,.14);
+  border-top:3px solid var(--red-text);
+  border-radius:18px;
+  background:linear-gradient(155deg,rgba(13,18,28,.99),rgba(4,9,17,.99));
+  box-shadow:0 24px 70px rgba(0,0,0,.58);
+  opacity:0;
+  transform:translateY(16px);
+  pointer-events:none;
+  transition:opacity .18s ease,transform .18s ease;
+}
+.paper-promo.is-visible{opacity:1;transform:translateY(0);pointer-events:auto}
+.paper-promo__close{
+  position:absolute;
+  top:.65rem;
+  right:.75rem;
+  display:grid;
+  place-items:center;
+  width:36px;
+  height:36px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:999px;
+  background:rgba(255,255,255,.035);
+  color:#fff;
+  font-size:1.35rem;
+  line-height:1;
+  cursor:pointer;
+}
+.paper-promo__close:hover,.paper-promo__close:focus-visible{border-color:var(--red-text);color:var(--red-text)}
+.paper-promo .eyebrow{padding-right:2.4rem;margin-bottom:.45rem;color:var(--red-text)}
+.paper-promo h2{margin:0 2.2rem .65rem 0;color:#fff;font-size:1.3rem;line-height:1.15}
+.paper-promo p:not(.eyebrow){margin:0;color:#c4ccd7;line-height:1.55}
+.paper-promo__actions{display:flex;flex-wrap:wrap;gap:.85rem;align-items:center;margin-top:1rem}
+.paper-promo__download{color:#fff;font-weight:800;text-decoration:none}
+.paper-promo__download:hover,.paper-promo__download:focus-visible{color:var(--red-text)}
+
 @media (max-width:760px){
+  .academy-platform-strip{grid-template-columns:1fr;align-items:start}
+  .paper-promo{right:.75rem;bottom:.75rem;width:calc(100vw - 1.5rem)}
   .consent-banner__inner{
     grid-template-columns:1fr;
   }
