@@ -23,6 +23,10 @@ FORBIDDEN_PUBLIC_TEXT = (
     "serviceWorker.register('/sw.js')",
 )
 LEGAL_LINKS = ("/privacy.html", "/terms.html", "/accessibility.html")
+REQUIRED_POSITIONING = {
+    "index.html": ("Applied Readiness Continuum (ARC)", "Learn. Diagnose. Interpret."),
+    "services.html": ("APPLIED READINESS CONTINUUM (ARC)", "Learn — CRF", "Diagnose — CRD", "Interpret — LIB"),
+}
 
 
 class PageParser(HTMLParser):
@@ -156,6 +160,11 @@ def main() -> int:
         for forbidden in FORBIDDEN_PUBLIC_TEXT:
             if forbidden in text:
                 errors.append(f"{rel}: forbidden legacy or unconditional-tracking reference: {forbidden}")
+
+        required_positioning = REQUIRED_POSITIONING.get(rel.as_posix(), ())
+        for phrase in required_positioning:
+            if phrase not in text:
+                errors.append(f"{rel}: required Cutline positioning missing: {phrase}")
 
         for img in parser.images:
             if "alt" not in img:
