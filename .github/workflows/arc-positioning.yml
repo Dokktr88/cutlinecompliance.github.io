@@ -1,0 +1,36 @@
+name: Apply ARC positioning
+
+on:
+  push:
+    branches:
+      - website-v2.1-arc-positioning
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    if: ${{ !contains(github.event.head_commit.message, '[arc-positioning-applied]') }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out branch
+        uses: actions/checkout@v4
+        with:
+          ref: website-v2.1-arc-positioning
+          fetch-depth: 0
+
+      - name: Apply ARC positioning
+        run: python tools/apply_arc_positioning.py
+
+      - name: Commit ARC positioning
+        shell: bash
+        run: |
+          if git diff --quiet; then
+            echo "No ARC positioning changes required."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html services.html
+          git commit -m "Make ARC explicit in public product architecture [arc-positioning-applied]"
+          git push origin HEAD:website-v2.1-arc-positioning
