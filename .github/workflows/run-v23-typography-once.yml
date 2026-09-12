@@ -1,0 +1,32 @@
+name: One-time v2.3 typography hotfix
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: ${{ github.event.head_commit.message == 'Temporarily run v2.3 typography hotfix' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out typography branch
+        uses: actions/checkout@v4
+        with:
+          ref: website-v2.3-typography-hotfix
+          fetch-depth: 0
+      - name: Apply guarded typography hotfix
+        run: python tools/apply_typography_hotfix.py
+      - name: Remove one-time script
+        run: rm tools/apply_typography_hotfix.py
+      - name: Commit typography branch
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "Use controlled Cutline typography stack"
+          git push origin HEAD:website-v2.3-typography-hotfix
