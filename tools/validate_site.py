@@ -25,7 +25,7 @@ FORBIDDEN_PUBLIC_TEXT = (
 LEGAL_LINKS = ("/privacy.html", "/terms.html", "/accessibility.html")
 REQUIRED_POSITIONING = {
     "index.html": ("Applied Readiness Continuum (ARC)", "Learn. Diagnose. Interpret."),
-    "services.html": ("Applied Readiness Continuum (ARC)", "Learn — CRF", "Diagnose — CRD", "Interpret — LIB"),
+    "services.html": ("APPLIED READINESS CONTINUUM (ARC)", "Learn — CRF", "Diagnose — CRD", "Interpret — LIB"),
 }
 
 
