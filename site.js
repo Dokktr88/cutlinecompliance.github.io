@@ -7,28 +7,15 @@
   let analyticsLoading = false;
 
   function getConsent() {
-    try {
-      return localStorage.getItem(CONSENT_KEY);
-    } catch (_) {
-      return null;
-    }
+    try { return localStorage.getItem(CONSENT_KEY); } catch (_) { return null; }
   }
 
   function setConsent(value) {
-    try {
-      localStorage.setItem(CONSENT_KEY, value);
-      return true;
-    } catch (_) {
-      return false;
-    }
+    try { localStorage.setItem(CONSENT_KEY, value); return true; } catch (_) { return false; }
   }
 
   function clearConsent() {
-    try {
-      localStorage.removeItem(CONSENT_KEY);
-    } catch (_) {
-      // If storage is unavailable there is nothing persistent to clear.
-    }
+    try { localStorage.removeItem(CONSENT_KEY); } catch (_) {}
   }
 
   function setAnalyticsEnabled(enabled) {
@@ -47,8 +34,6 @@
 
     analyticsLoading = true;
     ensureGtag();
-
-    // Queue configuration before loading the library so early user events retain ordering.
     window.gtag('js', new Date());
     window.gtag('config', GA_ID);
 
@@ -91,7 +76,6 @@
       </div>`;
 
     document.body.appendChild(banner);
-
     banner.querySelectorAll('[data-consent]').forEach((button) => {
       button.addEventListener('click', () => {
         const value = button.getAttribute('data-consent');
@@ -120,25 +104,46 @@
     }
   }
 
-  function initNavigationAccessibility() {
+  function initNavigation() {
     const btn = document.querySelector('.menu-toggle');
     const nav = document.getElementById('site-nav');
     if (!btn || !nav) return;
 
-    const syncLabel = () => {
-      const open = btn.getAttribute('aria-expanded') === 'true';
+    const setOpen = (open, returnFocus = false) => {
+      nav.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', String(open));
       btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      if (!open && returnFocus) btn.focus();
     };
 
-    btn.addEventListener('click', () => requestAnimationFrame(syncLabel));
-    document.addEventListener('keydown', (event) => {
-      if (event.key !== 'Escape' || btn.getAttribute('aria-expanded') !== 'true') return;
-      nav.classList.remove('open');
-      btn.setAttribute('aria-expanded', 'false');
-      syncLabel();
-      btn.focus();
+    btn.addEventListener('click', () => {
+      setOpen(btn.getAttribute('aria-expanded') !== 'true');
     });
-    syncLabel();
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+        setOpen(false, true);
+      }
+    });
+
+    nav.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => setOpen(false));
+    });
+
+    setOpen(false);
+  }
+
+  function initSmoothAnchors() {
+    document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const href = link.getAttribute('href');
+        if (!href || href === '#') return;
+        const target = document.querySelector(href);
+        if (!target) return;
+        event.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
   }
 
   function classifyLink(link) {
@@ -168,27 +173,14 @@
     });
   }
 
-  function initFooterLinks() {
-    const footer = document.querySelector('.footer');
-    if (!footer || footer.querySelector('.legal-footer-links')) return;
-
-    const wrap = document.createElement('div');
-    wrap.className = 'container legal-footer-links';
-    wrap.innerHTML = `
-      <a href="/privacy.html">Privacy</a>
-      <a href="/terms.html">Terms of Use</a>
-      <a href="/accessibility.html">Accessibility</a>
-      <button type="button" class="privacy-choice-button" data-reset-analytics>Privacy choices</button>`;
-    footer.appendChild(wrap);
-
-    const reset = wrap.querySelector('[data-reset-analytics]');
-    if (reset) {
-      reset.addEventListener('click', () => {
-        setAnalyticsEnabled(false);
-        clearConsent();
-        buildConsentBanner();
-      });
-    }
+  function initFooterPrivacyControl() {
+    const reset = document.querySelector('[data-reset-analytics]');
+    if (!reset) return;
+    reset.addEventListener('click', () => {
+      setAnalyticsEnabled(false);
+      clearConsent();
+      buildConsentBanner();
+    });
   }
 
   function initYear() {
@@ -220,10 +212,11 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     initYear();
-    initNavigationAccessibility();
+    initNavigation();
+    initSmoothAnchors();
     initConsent();
     initAnalyticsEvents();
-    initFooterLinks();
+    initFooterPrivacyControl();
     retireLegacyServiceWorker();
   });
 })();
