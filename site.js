@@ -5,15 +5,44 @@
   const CONSENT_KEY = 'cutline_analytics_consent_v1';
   let analyticsLoading = false;
 
+  function getConsent() {
+    try {
+      return localStorage.getItem(CONSENT_KEY);
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function setConsent(value) {
+    try {
+      localStorage.setItem(CONSENT_KEY, value);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function clearConsent() {
+    try {
+      localStorage.removeItem(CONSENT_KEY);
+    } catch (_) {
+      // If storage is unavailable there is nothing persistent to clear.
+    }
+  }
+
   function ensureGtag() {
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
   }
 
   function loadAnalytics() {
-    if (window.__cutlineAnalyticsLoaded || analyticsLoading) return;
+    if (window.__cutlineAnalyticsLoaded || analyticsLoading || getConsent() !== 'granted') return;
     analyticsLoading = true;
     ensureGtag();
+
+    // Queue configuration before loading the library so early user events retain ordering.
+    window.gtag('js', new Date());
+    window.gtag('config', GA_ID);
 
     const script = document.createElement('script');
     script.async = true;
@@ -21,15 +50,13 @@
     script.onload = () => {
       analyticsLoading = false;
       window.__cutlineAnalyticsLoaded = true;
-      window.gtag('js', new Date());
-      window.gtag('config', GA_ID);
     };
     script.onerror = () => { analyticsLoading = false; };
     document.head.appendChild(script);
   }
 
   function track(eventName, params = {}) {
-    if (localStorage.getItem(CONSENT_KEY) !== 'granted') return;
+    if (getConsent() !== 'granted') return;
     ensureGtag();
     window.gtag('event', eventName, params);
   }
@@ -60,7 +87,7 @@
     banner.querySelectorAll('[data-consent]').forEach((button) => {
       button.addEventListener('click', () => {
         const value = button.getAttribute('data-consent');
-        localStorage.setItem(CONSENT_KEY, value);
+        setConsent(value);
         if (value === 'granted') loadAnalytics();
         banner.remove();
       });
@@ -68,7 +95,7 @@
   }
 
   function initConsent() {
-    const saved = localStorage.getItem(CONSENT_KEY);
+    const saved = getConsent();
     if (saved === 'granted') {
       loadAnalytics();
     } else if (saved !== 'denied') {
@@ -133,8 +160,17 @@
     wrap.innerHTML = `
       <a href="/privacy.html">Privacy</a>
       <a href="/terms.html">Terms of Use</a>
-      <a href="/accessibility.html">Accessibility</a>`;
+      <a href="/accessibility.html">Accessibility</a>
+      <button type="button" class="privacy-choice-button" data-reset-analytics>Privacy choices</button>`;
     footer.appendChild(wrap);
+
+    const reset = wrap.querySelector('[data-reset-analytics]');
+    if (reset) {
+      reset.addEventListener('click', () => {
+        clearConsent();
+        buildConsentBanner();
+      });
+    }
   }
 
   function initYear() {
@@ -147,7 +183,14 @@
     if (!('serviceWorker' in navigator)) return;
     try {
       const registrations = await navigator.serviceWorker.getRegistrations();
-      await Promise.all(registrations.map((registration) => registration.unregister()));
+      await Promise.all(
+        registrations
+          .filter((registration) => {
+            const active = registration.active || registration.waiting || registration.installing;
+            return active && new URL(active.scriptURL).pathname === '/sw.js';
+          })
+          .map((registration) => registration.unregister())
+      );
       if ('caches' in window) {
         const keys = await caches.keys();
         await Promise.all(keys.filter((key) => key.startsWith('cutline-v')).map((key) => caches.delete(key)));
