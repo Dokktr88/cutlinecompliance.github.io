@@ -202,6 +202,8 @@
     width:calc(100vw - 1.5rem);
     max-height:calc(100dvh - 1.5rem);
   }
+  .paper-promo__actions{gap:.4rem}
+  .paper-promo__download{font-size:.82rem}
   .consent-banner__inner{
     grid-template-columns:1fr;
   }
