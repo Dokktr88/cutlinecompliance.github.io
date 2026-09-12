@@ -4,6 +4,7 @@
   const GA_ID = 'G-Z4KHLSPY1T';
   const CONSENT_KEY = 'cutline_analytics_consent_v1';
   const GA_DISABLE_KEY = `ga-disable-${GA_ID}`;
+  const PAPER_PROMO_SESSION_KEY = 'cutline_paper_promo_seen_v1';
   let analyticsLoading = false;
 
   function getConsent() {
@@ -174,6 +175,90 @@
     });
   }
 
+  function initPaperPromo() {
+    const path = window.location.pathname;
+    const excluded = [
+      '/intelligence/producer-direct-interstate-meat-commerce/',
+      '/privacy.html',
+      '/terms.html',
+      '/accessibility.html',
+      '/404.html'
+    ];
+    if (excluded.some((item) => path === item || path.endsWith(item))) return;
+
+    try {
+      if (sessionStorage.getItem(PAPER_PROMO_SESSION_KEY) === '1') return;
+    } catch (_) {}
+
+    let opened = false;
+    let retryCount = 0;
+    let escapeHandler = null;
+
+    const remember = () => {
+      try { sessionStorage.setItem(PAPER_PROMO_SESSION_KEY, '1'); } catch (_) {}
+    };
+
+    const openPromo = () => {
+      if (opened || document.querySelector('[data-paper-promo]')) return;
+      if (document.querySelector('[data-cutline-consent]')) {
+        if (retryCount < 10) {
+          retryCount += 1;
+          window.setTimeout(openPromo, 1800);
+        }
+        return;
+      }
+
+      opened = true;
+      remember();
+      const promo = document.createElement('aside');
+      promo.className = 'paper-promo';
+      promo.setAttribute('data-paper-promo', '');
+      promo.setAttribute('role', 'region');
+      promo.setAttribute('aria-labelledby', 'paper-promo-title');
+      promo.setAttribute('aria-describedby', 'paper-promo-copy');
+      promo.innerHTML = `
+        <button class="paper-promo__close" type="button" aria-label="Close paper promotion">×</button>
+        <p class="eyebrow">NEW CUTLINE INTELLIGENCE PAPER</p>
+        <h2 id="paper-promo-title">A Safe Path to Producer-Direct Interstate Meat Commerce</h2>
+        <p id="paper-promo-copy">Read Cutline's 50-state analysis of producer access, inspection pathways, market structure, food safety, and a proposed inspected path forward.</p>
+        <div class="paper-promo__actions">
+          <a class="btn btn-primary" href="/intelligence/producer-direct-interstate-meat-commerce/">Read the analysis</a>
+          <a class="paper-promo__download" href="/downloads/producer-direct-interstate-meat-commerce-full-report.pdf" download>Download full report</a>
+        </div>`;
+      document.body.appendChild(promo);
+      requestAnimationFrame(() => promo.classList.add('is-visible'));
+      track('paper_promo_view', { page_path: window.location.pathname });
+
+      const close = () => {
+        if (escapeHandler) document.removeEventListener('keydown', escapeHandler);
+        promo.classList.remove('is-visible');
+        window.setTimeout(() => promo.remove(), 180);
+      };
+      promo.querySelector('.paper-promo__close')?.addEventListener('click', close);
+      promo.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          track('paper_promo_click', { destination: link.href, page_path: window.location.pathname });
+          close();
+        });
+      });
+      escapeHandler = (event) => {
+        if (event.key === 'Escape' && document.body.contains(promo)) close();
+      };
+      document.addEventListener('keydown', escapeHandler);
+    };
+
+    const onScroll = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      if (scrollable > 0 && window.scrollY / scrollable >= 0.30) {
+        window.removeEventListener('scroll', onScroll);
+        openPromo();
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.setTimeout(openPromo, 9000);
+  }
+
   function initFooterPrivacyControl() {
     const reset = document.querySelector('[data-reset-analytics]');
     if (!reset) return;
@@ -217,6 +302,7 @@
     initSmoothAnchors();
     initConsent();
     initAnalyticsEvents();
+    initPaperPromo();
     initFooterPrivacyControl();
     retireLegacyServiceWorker();
   });

@@ -23,6 +23,12 @@ FORBIDDEN_PUBLIC_TEXT = (
     "serviceWorker.register('/sw.js')",
 )
 LEGAL_LINKS = ("/privacy.html", "/terms.html", "/accessibility.html")
+PRODUCT_ACRONYMS = {
+    "ARC": "Applied Readiness Continuum (ARC)",
+    "CRF": "Compliance Readiness Fundamentals (CRF)",
+    "CRD": "Compliance Readiness Diagnostic (CRD)",
+    "LIB": "Leadership Intelligence Brief (LIB)",
+}
 REQUIRED_POSITIONING = {
     "index.html": ("Applied Readiness Continuum (ARC)", "Learn. Diagnose. Interpret."),
     "services.html": ("APPLIED READINESS CONTINUUM (ARC)", "Learn — CRF", "Diagnose — CRD", "Interpret — LIB"),
@@ -165,6 +171,16 @@ def main() -> int:
         for phrase in required_positioning:
             if phrase not in text:
                 errors.append(f"{rel}: required Cutline positioning missing: {phrase}")
+
+        body_source = text.split("<body", 1)[1] if "<body" in text else text
+        body_lower = body_source.lower()
+        for acronym, definition in PRODUCT_ACRONYMS.items():
+            match = re.search(rf"\b{re.escape(acronym)}\b", body_source)
+            if not match:
+                continue
+            definition_index = body_lower.find(definition.lower())
+            if definition_index == -1 or definition_index > match.start():
+                errors.append(f"{rel}: {acronym} appears before it is introduced as '{definition}'")
 
         for img in parser.images:
             if "alt" not in img:
