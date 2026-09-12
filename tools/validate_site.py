@@ -22,6 +22,7 @@ FORBIDDEN_PUBLIC_TEXT = (
     "googletagmanager.com/gtag/js",
     "serviceWorker.register('/sw.js')",
 )
+LEGAL_LINKS = ("/privacy.html", "/terms.html", "/accessibility.html")
 
 
 class PageParser(HTMLParser):
@@ -111,12 +112,10 @@ def main() -> int:
     errors: list[str] = []
     pages = sorted(p for p in ROOT.rglob("*.html") if ".git" not in p.parts)
     parsed: dict[Path, PageParser] = {}
-    texts: dict[Path, str] = {}
 
     for path in pages:
         parser, text = parse_page(path)
         parsed[path.resolve()] = parser
-        texts[path.resolve()] = text
         rel = path.relative_to(ROOT)
         public = path.name != "404.html"
 
@@ -141,8 +140,18 @@ def main() -> int:
             for key in ("twitter:card", "twitter:title", "twitter:description", "twitter:image"):
                 if not parser.meta_name.get(key):
                     errors.append(f"{rel}: missing {key}")
-            if "/site.js?v=1" not in text:
-                errors.append(f"{rel}: missing shared site.js")
+
+        if "/site.js?v=1" not in text:
+            errors.append(f"{rel}: missing shared site.js")
+        if "legal-footer-links" not in text:
+            errors.append(f"{rel}: legal footer must be present in static HTML")
+        for legal_href in LEGAL_LINKS:
+            if f'href="{legal_href}"' not in text:
+                errors.append(f"{rel}: static legal footer missing {legal_href}")
+        if "data-reset-analytics" not in text:
+            errors.append(f"{rel}: static privacy-choice control missing")
+        if re.search(r"document\.querySelector\(['\"]\.menu-toggle['\"]\)", text):
+            errors.append(f"{rel}: duplicated inline menu behavior; use site.js")
 
         for forbidden in FORBIDDEN_PUBLIC_TEXT:
             if forbidden in text:
@@ -158,7 +167,6 @@ def main() -> int:
 
         validate_json_ld(rel, text, errors)
 
-    # Validate local assets, local page links and fragments.
     for source_resolved, parser in parsed.items():
         source = source_resolved
         rel = source.relative_to(ROOT.resolve())
@@ -178,14 +186,12 @@ def main() -> int:
                 if target_parser and fragment not in set(target_parser.ids):
                     errors.append(f"{rel}: missing fragment #{fragment} in {target.relative_to(ROOT.resolve())}")
 
-    # Keep shipped static assets lean enough for a marketing site.
     for path in ROOT.rglob("*"):
         if not path.is_file() or ".git" in path.parts:
             continue
         if path.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp", ".gif"} and path.stat().st_size > 2_000_000:
             errors.append(f"{path.relative_to(ROOT)}: image exceeds 2 MB ({path.stat().st_size:,} bytes)")
 
-    # Sitemap should enumerate every canonical public HTML page except the custom 404.
     sitemap_path = ROOT / "sitemap.xml"
     if not sitemap_path.exists():
         errors.append("sitemap.xml: missing")
@@ -199,8 +205,8 @@ def main() -> int:
                 if not node.findtext("sm:lastmod", default="", namespaces=ns):
                     errors.append("sitemap.xml: every URL must include lastmod")
             for path_resolved, parser in parsed.items():
-                path = Path(path_resolved)
-                if path.name == "404.html" or not parser.canonicals:
+                page = Path(path_resolved)
+                if page.name == "404.html" or not parser.canonicals:
                     continue
                 canonical = parser.canonicals[0]
                 if canonical.startswith(SITE) and canonical not in sitemap_locs:
