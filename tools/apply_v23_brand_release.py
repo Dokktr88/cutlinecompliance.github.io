@@ -31,9 +31,9 @@ replace_exact(
 html_files = sorted(ROOT.rglob('*.html'))
 for path in html_files:
     text = path.read_text(encoding='utf-8')
-    if '/enhancements.css?v=1' not in text:
+    if 'enhancements.css?v=1' not in text:
         raise SystemExit(f'{path.relative_to(ROOT)}: expected enhancements.css?v=1 reference missing')
-    text = text.replace('/enhancements.css?v=1', '/enhancements.css?v=2')
+    text = text.replace('enhancements.css?v=1', 'enhancements.css?v=2')
     text = re.sub(
         r'(<meta\s+name=["\']theme-color["\']\s+content=["\'])#07101d(["\']\s*/?>)',
         r'\1#FFFFFF\2',
@@ -49,4 +49,22 @@ manifest['background_color'] = '#FFFFFF'
 manifest['theme_color'] = '#FFFFFF'
 manifest_path.write_text(json.dumps(manifest, indent=2) + '\n', encoding='utf-8')
 
-print(f'Applied v2.3 brand release migration to {len(html_files)} HTML pages.')
+# Make the controlled visual system a permanent release gate.
+validator_path = ROOT / 'tools' / 'validate_site.py'
+validator = validator_path.read_text(encoding='utf-8')
+site_js_gate = '''        if "/site.js?v=1" not in text:\n            errors.append(f"{rel}: missing shared site.js")\n'''
+brand_gate = site_js_gate + '''        if "enhancements.css?v=2" not in text:\n            errors.append(f"{rel}: missing current brand stylesheet release enhancements.css?v=2")\n'''
+if brand_gate not in validator:
+    if validator.count(site_js_gate) != 1:
+        raise SystemExit('tools/validate_site.py: shared-site gate anchor missing or ambiguous')
+    validator = validator.replace(site_js_gate, brand_gate, 1)
+
+sitemap_anchor = '''    sitemap_path = ROOT / "sitemap.xml"\n'''
+brand_token_gate = '''    brand_css = (ROOT / "enhancements.css").read_text(encoding="utf-8")\n    for token in ("--cutline-red:#C8102E", "--cutline-black:#111111", "--cutline-light-gray:#F5F5F5"):\n        if token not in brand_css:\n            errors.append(f"enhancements.css: controlled Cutline brand token missing: {token}")\n\n'''
+if 'controlled Cutline brand token missing' not in validator:
+    if validator.count(sitemap_anchor) != 1:
+        raise SystemExit('tools/validate_site.py: sitemap anchor missing or ambiguous')
+    validator = validator.replace(sitemap_anchor, brand_token_gate + sitemap_anchor, 1)
+validator_path.write_text(validator, encoding='utf-8')
+
+print(f'Applied v2.3 brand release migration to {len(html_files)} HTML pages and strengthened the release gate.')
