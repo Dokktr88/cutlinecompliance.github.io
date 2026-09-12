@@ -192,6 +192,7 @@
 
     let opened = false;
     let retryCount = 0;
+    let escapeHandler = null;
 
     const remember = () => {
       try { sessionStorage.setItem(PAPER_PROMO_SESSION_KEY, '1'); } catch (_) {}
@@ -199,9 +200,11 @@
 
     const openPromo = () => {
       if (opened || document.querySelector('[data-paper-promo]')) return;
-      if (document.querySelector('[data-cutline-consent]') && retryCount < 10) {
-        retryCount += 1;
-        window.setTimeout(openPromo, 1800);
+      if (document.querySelector('[data-cutline-consent]')) {
+        if (retryCount < 10) {
+          retryCount += 1;
+          window.setTimeout(openPromo, 1800);
+        }
         return;
       }
 
@@ -210,7 +213,7 @@
       const promo = document.createElement('aside');
       promo.className = 'paper-promo';
       promo.setAttribute('data-paper-promo', '');
-      promo.setAttribute('role', 'dialog');
+      promo.setAttribute('role', 'region');
       promo.setAttribute('aria-labelledby', 'paper-promo-title');
       promo.setAttribute('aria-describedby', 'paper-promo-copy');
       promo.innerHTML = `
@@ -227,6 +230,7 @@
       track('paper_promo_view', { page_path: window.location.pathname });
 
       const close = () => {
+        if (escapeHandler) document.removeEventListener('keydown', escapeHandler);
         promo.classList.remove('is-visible');
         window.setTimeout(() => promo.remove(), 180);
       };
@@ -237,9 +241,10 @@
           close();
         });
       });
-      document.addEventListener('keydown', (event) => {
+      escapeHandler = (event) => {
         if (event.key === 'Escape' && document.body.contains(promo)) close();
-      }, { once: true });
+      };
+      document.addEventListener('keydown', escapeHandler);
     };
 
     const onScroll = () => {
