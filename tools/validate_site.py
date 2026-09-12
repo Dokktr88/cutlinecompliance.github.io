@@ -30,7 +30,13 @@ PRODUCT_ACRONYMS = {
     "LIB": "Leadership Intelligence Brief (LIB)",
 }
 REQUIRED_POSITIONING = {
-    "index.html": ("Applied Readiness Continuum (ARC)", "Learn. Diagnose. Interpret."),
+    "index.html": (
+        "Applied Readiness Continuum (ARC)",
+        "Learn. Diagnose. Interpret.",
+        "CUTLINE SIGNAL MAP",
+        "Current Intelligence",
+        "From signal to usable intelligence.",
+    ),
     "services.html": ("APPLIED READINESS CONTINUUM (ARC)", "Learn — CRF", "Diagnose — CRD", "Interpret — LIB"),
 }
 
@@ -48,9 +54,12 @@ class PageParser(HTMLParser):
         self.h1_count = 0
         self.title_count = 0
         self.skip_link = False
+        self.svg_depth = 0
 
     def handle_starttag(self, tag: str, attrs_raw):
         attrs = {k: (v or "") for k, v in attrs_raw}
+        if tag == "svg":
+            self.svg_depth += 1
         if attrs.get("id"):
             self.ids.append(attrs["id"])
         if tag == "a" and attrs.get("href"):
@@ -76,8 +85,12 @@ class PageParser(HTMLParser):
                 self.meta_property[attrs["property"].lower()] = attrs.get("content", "")
         if tag == "h1":
             self.h1_count += 1
-        if tag == "title":
+        if tag == "title" and self.svg_depth == 0:
             self.title_count += 1
+
+    def handle_endtag(self, tag: str):
+        if tag == "svg" and self.svg_depth > 0:
+            self.svg_depth -= 1
 
 
 def local_target(source: Path, raw_url: str) -> tuple[Path | None, str]:
@@ -135,7 +148,7 @@ def main() -> int:
 
         if public:
             if parser.title_count != 1:
-                errors.append(f"{rel}: expected exactly one <title>, found {parser.title_count}")
+                errors.append(f"{rel}: expected exactly one document <title>, found {parser.title_count}")
             if not parser.meta_name.get("description"):
                 errors.append(f"{rel}: missing meta description")
             if len(parser.canonicals) != 1:
@@ -155,6 +168,13 @@ def main() -> int:
             errors.append(f"{rel}: missing shared site.js")
         if "enhancements.css?v=2" not in text:
             errors.append(f"{rel}: missing current brand stylesheet release enhancements.css?v=2")
+        if rel.as_posix() == "index.html":
+            if "/v3.css?v=1" not in text:
+                errors.append(f"{rel}: missing Website v3 intelligence stylesheet")
+            if 'data-site-version="3.0"' not in text:
+                errors.append(f"{rel}: missing Website v3 release marker")
+            if "Conceptual model only — not a live operational feed." not in text:
+                errors.append(f"{rel}: signal map must retain the non-live-data disclosure")
         if "legal-footer-links" not in text:
             errors.append(f"{rel}: legal footer must be present in static HTML")
         for legal_href in LEGAL_LINKS:
