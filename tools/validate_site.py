@@ -173,11 +173,12 @@ def main() -> int:
                 errors.append(f"{rel}: required Cutline positioning missing: {phrase}")
 
         body_source = text.split("<body", 1)[1] if "<body" in text else text
+        body_lower = body_source.lower()
         for acronym, definition in PRODUCT_ACRONYMS.items():
             match = re.search(rf"\b{re.escape(acronym)}\b", body_source)
             if not match:
                 continue
-            definition_index = body_source.find(definition)
+            definition_index = body_lower.find(definition.lower())
             if definition_index == -1 or definition_index > match.start():
                 errors.append(f"{rel}: {acronym} appears before it is introduced as '{definition}'")
 
