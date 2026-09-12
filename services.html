@@ -276,32 +276,16 @@
       <div class="footer-links"><a href="index.html">Home</a><a href="learning-hub.html">Academy</a><a href="intelligence/">Intelligence</a><a href="ethics.html">Ethics & Scope</a></div>
     </div>
     <div class="container"><p class="scope-footer">Cutline products are educational, analytical, and readiness-focused. They do not provide regulatory decisions, agency representation, legal advice, audit certification, inspection outcomes, or facility-specific regulatory guidance for establishments currently regulated by USDA-FSIS.</p></div>
+  
+    <div class="container legal-footer-links">
+      <a href="/privacy.html">Privacy</a>
+      <a href="/terms.html">Terms of Use</a>
+      <a href="/accessibility.html">Accessibility</a>
+      <button type="button" class="privacy-choice-button" data-reset-analytics>Privacy choices</button>
+    </div>
   </footer>
 
-  <script>
-    document.getElementById('yr').textContent = new Date().getFullYear();
-    const btn = document.querySelector('.menu-toggle');
-    const nav = document.getElementById('site-nav');
-    if (btn && nav) {
-      btn.addEventListener('click', () => {
-        const open = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!open));
-        nav.classList.toggle('open');
-      });
-      document.querySelectorAll('a[href^="#"]').forEach(a => {
-        a.addEventListener('click', e => {
-          const id = a.getAttribute('href').slice(1);
-          const el = document.getElementById(id);
-          if (el) {
-            e.preventDefault();
-            window.scrollTo({ top: el.offsetTop - 78, behavior: 'smooth' });
-            nav.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-          }
-        });
-      });
-    }
-</script>
+  
   <script defer src="/site.js?v=1"></script>
 </body>
 </html>
