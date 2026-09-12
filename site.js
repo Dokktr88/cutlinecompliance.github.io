@@ -3,6 +3,7 @@
 
   const GA_ID = 'G-Z4KHLSPY1T';
   const CONSENT_KEY = 'cutline_analytics_consent_v1';
+  const GA_DISABLE_KEY = `ga-disable-${GA_ID}`;
   let analyticsLoading = false;
 
   function getConsent() {
@@ -30,13 +31,20 @@
     }
   }
 
+  function setAnalyticsEnabled(enabled) {
+    window[GA_DISABLE_KEY] = !enabled;
+  }
+
   function ensureGtag() {
     window.dataLayer = window.dataLayer || [];
     window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
   }
 
   function loadAnalytics() {
-    if (window.__cutlineAnalyticsLoaded || analyticsLoading || getConsent() !== 'granted') return;
+    if (getConsent() !== 'granted') return;
+    setAnalyticsEnabled(true);
+    if (window.__cutlineAnalyticsLoaded || analyticsLoading) return;
+
     analyticsLoading = true;
     ensureGtag();
 
@@ -88,7 +96,12 @@
       button.addEventListener('click', () => {
         const value = button.getAttribute('data-consent');
         setConsent(value);
-        if (value === 'granted') loadAnalytics();
+        if (value === 'granted') {
+          setAnalyticsEnabled(true);
+          loadAnalytics();
+        } else {
+          setAnalyticsEnabled(false);
+        }
         banner.remove();
       });
     });
@@ -97,8 +110,12 @@
   function initConsent() {
     const saved = getConsent();
     if (saved === 'granted') {
+      setAnalyticsEnabled(true);
       loadAnalytics();
-    } else if (saved !== 'denied') {
+    } else if (saved === 'denied') {
+      setAnalyticsEnabled(false);
+    } else {
+      setAnalyticsEnabled(false);
       buildConsentBanner();
     }
   }
@@ -115,7 +132,7 @@
 
     btn.addEventListener('click', () => requestAnimationFrame(syncLabel));
     document.addEventListener('keydown', (event) => {
-      if (event.key !== 'Escape') return;
+      if (event.key !== 'Escape' || btn.getAttribute('aria-expanded') !== 'true') return;
       nav.classList.remove('open');
       btn.setAttribute('aria-expanded', 'false');
       syncLabel();
@@ -167,6 +184,7 @@
     const reset = wrap.querySelector('[data-reset-analytics]');
     if (reset) {
       reset.addEventListener('click', () => {
+        setAnalyticsEnabled(false);
         clearConsent();
         buildConsentBanner();
       });
