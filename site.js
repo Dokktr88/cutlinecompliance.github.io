@@ -135,6 +135,7 @@
 
   function initSmoothAnchors() {
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
+      if (link.closest('.section-nav')) return;
       link.addEventListener('click', (event) => {
         const href = link.getAttribute('href');
         if (!href || href === '#') return;
