@@ -63,13 +63,29 @@
   margin-top:1rem;
   padding-top:1rem;
   border-top:1px solid rgba(255,255,255,.08);
+  align-items:center;
 }
 
-.legal-footer-links a{
+.legal-footer-links a,
+.privacy-choice-button{
   color:#cbd2dc;
   text-decoration:none;
   font-size:.86rem;
   font-weight:800;
+}
+
+.privacy-choice-button{
+  appearance:none;
+  border:0;
+  padding:0;
+  background:transparent;
+  font:inherit;
+  cursor:pointer;
+}
+
+.privacy-choice-button:hover,
+.privacy-choice-button:focus-visible{
+  color:var(--red-text);
 }
 
 .legal-page{
