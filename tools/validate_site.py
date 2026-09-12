@@ -153,6 +153,8 @@ def main() -> int:
 
         if "/site.js?v=1" not in text:
             errors.append(f"{rel}: missing shared site.js")
+        if "enhancements.css?v=2" not in text:
+            errors.append(f"{rel}: missing current brand stylesheet release enhancements.css?v=2")
         if "legal-footer-links" not in text:
             errors.append(f"{rel}: legal footer must be present in static HTML")
         for legal_href in LEGAL_LINKS:
@@ -216,6 +218,11 @@ def main() -> int:
             continue
         if path.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp", ".gif"} and path.stat().st_size > 2_000_000:
             errors.append(f"{path.relative_to(ROOT)}: image exceeds 2 MB ({path.stat().st_size:,} bytes)")
+
+    brand_css = (ROOT / "enhancements.css").read_text(encoding="utf-8")
+    for token in ("--cutline-red:#C8102E", "--cutline-black:#111111", "--cutline-light-gray:#F5F5F5"):
+        if token not in brand_css:
+            errors.append(f"enhancements.css: controlled Cutline brand token missing: {token}")
 
     sitemap_path = ROOT / "sitemap.xml"
     if not sitemap_path.exists():
