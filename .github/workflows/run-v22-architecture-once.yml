@@ -1,0 +1,32 @@
+name: One-time v2.2 architecture migration
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    if: ${{ github.event.head_commit.message == 'Temporarily enable guarded v2.2 branch migration' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out feature branch
+        uses: actions/checkout@v4
+        with:
+          ref: website-v2.2-architecture-correction
+          fetch-depth: 0
+
+      - name: Apply guarded architecture correction
+        run: python tools/apply_v22_content_architecture.py
+
+      - name: Commit feature branch
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html services.html learning-hub.html ethics.html youtube.html site.js enhancements.css tools/validate_site.py
+          git commit -m "Correct product hierarchy, paper promotion, and acronym use [v22-applied]"
+          git push origin HEAD:website-v2.2-architecture-correction
