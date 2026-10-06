@@ -26,7 +26,7 @@ LEGAL_LINKS = ("/privacy.html", "/terms.html", "/accessibility.html")
 PRODUCT_ACRONYMS = {
     "ARC": "Applied Readiness Continuum (ARC)",
     "CRF": "Compliance Readiness Fundamentals (CRF)",
-    "CRD": "Compliance Readiness Diagnostic (CRD)",
+    "CRD": "Compliance Readiness Diagnosis (CRD)",
     "LIB": "Leadership Intelligence Brief (LIB)",
 }
 REQUIRED_POSITIONING = {
