@@ -164,7 +164,7 @@ def main() -> int:
                 if not parser.meta_name.get(key):
                     errors.append(f"{rel}: missing {key}")
 
-        if "/site.js?v=1" not in text:
+        if "/site.js?v=2" not in text:
             errors.append(f"{rel}: missing shared site.js")
         if "enhancements.css?v=2" not in text:
             errors.append(f"{rel}: missing current brand stylesheet release enhancements.css?v=2")
